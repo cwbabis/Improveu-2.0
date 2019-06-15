@@ -1,0 +1,18 @@
+.card-header {
+    font-weight: bold;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    margin: 15px;
+    float: left;
+}
+
+hr {
+    margin: 0px;
+}
+
+.buddy-button {
+    margin-left: auto;
+}
