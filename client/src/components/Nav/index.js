@@ -9,7 +9,7 @@ function Nav() {
                 <p id="local-name"></p>
             </div> */}
             <div className="nav-title">
-                <h1>Improveu</h1>
+                <h1>Improveuu</h1>
             </div>{/* 
             <button id="target" type="button" className="fas fa-plus fa-2x btn btn-success btn-circle btn-lg"></button> */}
         </nav>
