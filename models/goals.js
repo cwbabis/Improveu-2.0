@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const goalSchema = new Schema({
     title: String,
-    goal: String
+    goal: String,
+    userName: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 const Goal = mongoose.model("Goal", goalSchema);
