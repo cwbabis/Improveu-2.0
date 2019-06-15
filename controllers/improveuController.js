@@ -1,69 +1,69 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods for the improveuController
 module.exports = {
   findAllUsers: function (req, res) {
-    /*     db.Book
+         db.User
           .find(req.query)
-          .sort({ date: -1 })
+          /* .sort({ date: -1 }) */
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
   findUserById: function (req, res) {
-    /*     db.Book
+         db.User
           .findById(req.params.id)
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
   createUser: function (req, res) {
-    /*     db.Book
+          db.User
           .create(req.body)
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err));
   },
   updateUser: function (req, res) {
-    /*     db.Book
+          db.User
           .findOneAndUpdate({ _id: req.params.id }, req.body)
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
   removeUser: function (req, res) {
-    /*     db.Book
+          db.User
           .findById({ _id: req.params.id })
           .then(dbModel => dbModel.remove())
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
   findAllGoals: function (req, res) {
-    /*     db.Book
+          db.Goal
           .find(req.query)
-          .sort({ date: -1 })
+          /* .sort({ date: -1 }) */
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
-  findUserById: function (req, res) {
-    /*     db.Book
+  findGoalById: function (req, res) {
+          db.Goal
           .findById(req.params.id)
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
-  createUser: function (req, res) {
-    /*     db.Book
+  createGoal: function (req, res) {
+          db.Goal
           .create(req.body)
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
-  updateUser: function (req, res) {
-    /*     db.Book
+  updateGoal: function (req, res) {
+          db.Goal
           .findOneAndUpdate({ _id: req.params.id }, req.body)
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   },
-  removeUser: function (req, res) {
-    /*     db.Book
+  removeGoal: function (req, res) {
+          db.Goal
           .findById({ _id: req.params.id })
           .then(dbModel => dbModel.remove())
           .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err)); */
+          .catch(err => res.status(422).json(err)); 
   }
 };

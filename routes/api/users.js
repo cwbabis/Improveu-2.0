@@ -1,16 +1,16 @@
 const router = require("express").Router();
 const improveuController = require("../../controllers/improveuController");
 
-// Matches with "/api/goals"
+// Matches with "/api/user"
 router.route("/")
-  .get(improveuController.findAll)
-  .post(improveuController.create);
+  .get(improveuController.findAllUsers)
+  .post(improveuController.createUser);
 
-// Matches with "/api/goals/:id"
+// Matches with "/api/user/:id"
 router
   .route("/:id")
-  .get(improveuController.findById)
-  .put(improveuController.update)
-  .delete(improveuController.remove);
+  .get(improveuController.findUserById)
+  .put(improveuController.updateUser)
+  .delete(improveuController.removeUser);
 
 module.exports = router;

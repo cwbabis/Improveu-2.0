@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser")
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes")
 const app = express();
 const mongoose = require("mongoose");
 
@@ -19,10 +20,11 @@ const connection = mongoose.connection;
 connection.once('open', function () {
   console.log("MongoDB database connection established successfully");
 })
-// Define API routes here
+// API routes
+
+app.use(routes);
 
 // Send every other request to the React app
-// Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
