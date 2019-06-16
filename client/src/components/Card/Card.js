@@ -3,7 +3,8 @@ import "./card.css";
 
 function Card(props) {
     return (
-            <div className="col-md-6 offset-md-3">
+        <div className="container">
+            <div className="col-md-5">
                 <div className="card">
                     <div className="card-header">
                         Example goal title
@@ -26,6 +27,7 @@ function Card(props) {
                     </div>
                 </div>
             </div>
+        </div>
     );
 }
 
