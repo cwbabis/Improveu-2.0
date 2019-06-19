@@ -1,24 +1,21 @@
-import React, { Component } from "react";
-import "./App.css";
-import Card from "./components/Goal Card";
-import Nav from "./components/Nav";
-import UserCard from "./components/User Card";
-import Row from "./components/Row";
-import Col from "./components/Col";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Landing from "./pages/Landing";
+import Profile from "./pages/Profile";
+/* import Footer from "./components/Footer"; */
 
-class App extends Component {
-  render() {
-    return (
+function App() {
+  return (
+    <Router>
       <div>
-        <Nav />
-        <br></br><br></br>
-        <Row>
-          <UserCard />
-          <Card />
-        </Row>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/dashboard" component={Dashboard} />
+      {/*   <Footer /> */}
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
