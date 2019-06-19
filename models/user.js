@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     name: {
         type: String,
     },
-    password: String
+    password: String,
+    goals: [ {type : mongoose.Schema.ObjectId, ref : 'Goals'} ]
 });
 
 const User = mongoose.model("User", userSchema);
