@@ -3,6 +3,8 @@ import "./App.css";
 import Card from "./components/Goal Card";
 import Nav from "./components/Nav";
 import UserCard from "./components/User Card";
+import Row from "./components/Row";
+import Col from "./components/Col";
 
 class App extends Component {
   render() {
@@ -10,10 +12,10 @@ class App extends Component {
       <div>
         <Nav />
         <br></br><br></br>
-
-        <UserCard />
-        <Card />
-
+        <Row>
+          <UserCard />
+          <Card />
+        </Row>
       </div>
     );
   }
