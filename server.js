@@ -1,16 +1,21 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser")
+const passport = require('passport');
 const PORT = process.env.PORT || 3001;
-const routes = require("./routes")
+const expressSession = require('express-session');
+const passport = require('passport');
+var expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 var multer = require("multer");
 
 
 
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
@@ -21,7 +26,7 @@ rename: function (fieldname, filename){
 }));
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/public"));
 }
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/improveu");
 const connection = mongoose.connection;
@@ -34,7 +39,7 @@ app.use(routes);
 
 // Send every other request to the React app
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, () => {
