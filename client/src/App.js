@@ -1,23 +1,22 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Wrapper from "./components/Wrapper";
+import Card from "./components/Goal Card";
+import Nav from "./components/Nav";
+import UserCard from "./components/User Card";
+import Row from "./components/Row";
+import Col from "./components/Col";
 
 class App extends Component {
   render() {
     return (
-      <Wrapper>
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Nav />
+        <br></br><br></br>
+        <Row>
+          <UserCard />
+          <Card />
+        </Row>
       </div>
-      </Wrapper>
-      
     );
   }
 }

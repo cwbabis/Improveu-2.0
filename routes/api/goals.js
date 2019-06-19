@@ -3,14 +3,14 @@ const improveuController = require("../../controllers/improveuController");
 
 // Matches with "/api/goals"
 router.route("/")
-  .get(improveuController.findAll)
-  .post(improveuController.create);
+  .get(improveuController.findAllGoals)
+  .post(improveuController.createGoal);
 
 // Matches with "/api/goals/:id"
 router
   .route("/:id")
-  .get(improveuController.findById)
-  .put(improveuController.update)
-  .delete(improveuController.remove);
+  .get(improveuController.findGoalById)
+  .put(improveuController.updateGoal)
+  .delete(improveuController.removeGoal);
 
 module.exports = router;
