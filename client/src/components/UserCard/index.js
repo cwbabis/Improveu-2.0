@@ -3,7 +3,7 @@ import "./index.css";
 
 function UserCard(props) {
     return (
-        <div className="container col-md-3">
+        <div className="col-md-12">
             <div className="card">
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 </div>
