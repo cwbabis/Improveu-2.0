@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import UserCard from "./components/User Card";
 import Row from "./components/Row";
 import Col from "./components/Col";
+import Achievement from "./components/Achievement"
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Row>
           <UserCard />
           <Card />
+          <Achievement />
         </Row>
       </div>
     );
