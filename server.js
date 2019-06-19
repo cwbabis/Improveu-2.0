@@ -1,13 +1,14 @@
 const express = require("express");
 const path = require("path");
-const bodyParser = require("body-parser")
-const PORT = process.env.PORT || 3001;
-const routes = require("./routes")
+const passport = require('passport');
+var expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
