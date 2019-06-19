@@ -1,7 +1,7 @@
 import React from "react";
-import "./card.css";
+import "./index.css";
 
-function Card(props) {
+function GoalCard(props) {
     return (
         <div className="col-md-6 offset-md-3">
             <div className="card">
@@ -29,4 +29,4 @@ function Card(props) {
     );
 }
 
-export default Card;
+export default GoalCard;
