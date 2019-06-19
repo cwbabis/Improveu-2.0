@@ -17,6 +17,7 @@ class App extends Component {
         </p>
       </div>
       </Wrapper>
+      
     );
   }
 }
