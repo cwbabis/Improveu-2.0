@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+    name: {
+        type: String,
+    },
+    password: String,
+    goals: [ {type : mongoose.Schema.ObjectId, ref : 'Goals'} ]
+=======
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
@@ -15,6 +26,7 @@ var UserSchema = mongoose.Schema({
   name: {
     type: String
   }
+>>>>>>> master
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
