@@ -6,7 +6,7 @@ const isLocked = false;
 
 function Achievement(props) {
     return (
-        <div className="col-md-3">
+        <div className="col-md-12">
             <div className="card">
                 <div className="card-header center">
                    Achievement Header
@@ -15,7 +15,7 @@ function Achievement(props) {
                     <img src={isLocked? locked: unlocked} alt="award image"></img>
                 </div>
                 <hr></hr>
-                <div className="card-footer text-muted float-left">
+                <div className="card-footer text-muted">
                    
                 </div>
             </div>
