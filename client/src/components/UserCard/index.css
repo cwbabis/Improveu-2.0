@@ -1,4 +1,36 @@
-.col-md-12{
+.col-md-12 {
     padding: 0px;
     padding-bottom: 30px;
+}
+
+.dashProPic {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+    /* #F7F7F7 */
+}
+
+.alignImg {
+    display: flex;
+    justify-content: center;
+}
+
+.dashProUsername {
+    text-align: center;
+    color: #244579;
+}
+.dashProUsername:hover{
+    text-decoration: underline;
+}
+.hightlight{
+    color: #244579;
+}
+a{
+    color: grey;
+}
+a:hover{
+    color: #244579;
+    text-decoration: none;
 }
