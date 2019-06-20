@@ -3,11 +3,20 @@ import "./index.css";
 
 function UserCard(props) {
     return (
-        <div className="container col-md-3">
+        <div className="col-md-12">
             <div className="card">
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                <div class="alignImg">
+                    <a href="#" ><img href=""
+                        class="dashProPic" src="https://via.placeholder.com/100" alt="placeholder"></img></a>
                 </div>
-            <div className="card-footer">
+                <div>
+                    <a href="#" ><p class="dashProUsername">Username Placeholder</p></a>
+                </div>
+                <div className="card-footer">
+                    <div class="">
+                        <a href="#"><p style={{ margin: 0, fontSize: 14 }} >Buddies<span class="hightlight float-right">#</span></p></a>
+                    </div>
+                </div>
             </div>
         </div>
     );
