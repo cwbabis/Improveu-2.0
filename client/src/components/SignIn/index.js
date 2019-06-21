@@ -3,29 +3,56 @@ import "./style.css";
 
 function SignIn(props) {
     return (
-
-        <div className="card">
-            <div className="card-header">
-                Sign In
-              </div>
-            {/* <<h1>{{msg}}</h1> */}
-            <div className="card-body">
-                 <h5 className="card-title" />
-                <form className="clearfix mb-2" action="POST">
-                    <div className="form-group">
-                        <label htmlFor="example-text">Username</label>
-                        <input type="text" id="user-name" className="form-control" aria-describedby="example-text" placeholder="Enter Your Username" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="example-description">Password</label>
-                        <input type="password" className="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Your Password" />
+                <div className="col-md-4 card nopadding">
+                    <div className="col-sm-12 nopadding">
+                        <ul className="nav-links new-session-tabs nav-tabs nav">
+                            <li className="nav-item" style={{ width: '50%'}}><a className="nav-link active show text-center" data-toggle="tab" href="#signin">Sign In</a></li>
+                            <li className="nav-item" style={{ width: '50%'}}><a className="nav-link text-center" data-toggle="tab" href="#menu1">Register</a></li>
+                        </ul>
                         <br />
+                        <div className="tab-content">
+                            <div id="signin" className="tab-pane fade-in active">
+                                <form action="#">
+                                    <div className="form-group">
+                                        <label htmlFor="UserName">Username</label>
+                                        <input type="text" className="form-control" id="email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="pwd">Password</label>
+                                        <input type="password" className="form-control" id="pwd" />
+                                    </div>
+                                    <button type="submit" className="btn btn-success btn-block">Submit</button>
+{/*                                     <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
+                                </form>
+                                <br />
+                            </div>
+                            <div id="menu1" className="tab-pane fade">
+                                <form action="#">
+                                    <div className="form-group">
+                                        <label htmlFor="UserName">Username</label>
+                                        <input type="text" className="form-control" id="email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email address</label>
+                                        <input type="email" className="form-control" id="email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="pwd">Password</label>
+                                        <input type="password" className="form-control" id="pwd" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="pwd">Confirm Password</label>
+                                        <input type="password" className="form-control" id="pwd" />
+                                    </div>
+                                    <button type="submit" className="btn btn-info btn-block">Register</button>
+                                   {/*  <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
+                                </form>
+                                <br />
+                            </div>
+                        </div>
                     </div>
-                    <button id="user-submit" className="btn btn-success btn-block float-left">Sign In</button>
-                </form>
-                 
-            </div>
-        </div>
+                </div>
+
     );
 
 }
