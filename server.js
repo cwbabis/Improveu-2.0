@@ -15,11 +15,11 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(multer({dest: "./uploads",
+/* app.use(multer({dest: "./uploads",
 rename: function (fieldname, filename){
   return filename
 },
-}));
+})); */
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
