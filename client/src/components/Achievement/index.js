@@ -9,7 +9,7 @@ function Achievement(props) {
         <div className="col-md-12" style={{height: '100%'}}>
             <div className="card">
                 <div className="card-header center">
-                   Achievement Header
+                   Achievements
                 </div>
                 <div>
                     <img src={isLocked? locked: unlocked} alt="award image"></img>
