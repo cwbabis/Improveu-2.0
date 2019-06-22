@@ -1,14 +1,12 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser")
-const passport = require('passport');
 const PORT = process.env.PORT || 3001;
 const expressSession = require('express-session');
 const passport = require('passport');
-var expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
-
+const routes = require("../Improveu-2.0/routes");
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
