@@ -5,7 +5,7 @@ function GoalCard(props) {
     return (
         <div className="col-md-12">
             <div className="card">
-                <div className="card-header">
+                <div className="card-header text-muted">
                     Example goal title
                     <div className="float-right text-muted">
                         Buddy Status:

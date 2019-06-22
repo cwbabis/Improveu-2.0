@@ -1,0 +1,68 @@
+.card-header {
+    font-weight: bold;
+}
+
+img {
+    height: 60px;
+    width: 60px;
+    margin: 11px;
+    float: left;
+}
+
+hr {
+    margin: 0px;
+}
+
+.buddy-button {
+    margin-left: auto;
+}
+
+.card {
+    -webkit-box-shadow: 0px 7px 10px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 7px 10px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 7px 10px -10px rgba(0, 0, 0, 0.75);
+}
+
+.goalcardpropic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid black;
+    /* #F7F7F7 */
+}
+
+.card-body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.goalCardUsername {
+    color: #244579;
+    padding-top: 10px;
+}
+
+.goalCardUsername:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+time {
+    font-size: 12px;
+}
+
+textarea {
+    border: 0 none white;
+    overflow: hidden;
+    padding: 0;
+    resize: none;
+    outline: none;
+}
+.card-header{
+    padding: 10px;
+}

@@ -7,6 +7,7 @@ import Row from "../../components/Row";
 import Achievement from "../../components/Achievement";
 import AdSpace from "../../components/AdSpace";
 import Col from "../../components/Col";
+import NewGoalCard from "../../components/NewGoalCard";
 
 class Dashboard extends Component {
   render() {
@@ -25,7 +26,7 @@ class Dashboard extends Component {
         </Col>
         <Col size="md-6">
           <Row>
-            <GoalCard />
+            <NewGoalCard />
           </Row>
           <Row>
             <GoalCard />
