@@ -1,4 +1,5 @@
 import React from "react";
+import Comment from "../Comment";
 import "./index.css";
 
 function GoalCard(props) {
@@ -29,10 +30,15 @@ function GoalCard(props) {
 
                 <div className="card-footer text-muted">
 
+                    <div className="float-left">
+                        Show Comments
+                    </div>
+                    
                     <button className="btn btn-success btn-sm float-right buddy-button" id="buddy-button">
                         Buddy Up
                 </button>
                 </div>
+                <Comment/>
             </div>
         </div >
     );
