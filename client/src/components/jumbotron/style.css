@@ -1,0 +1,17 @@
+h2{
+font-weight: bold;
+}
+h5{
+    font-weight: bold;
+}
+.pTag{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 5;
+}
+.md-48{
+    font-size: 48px;
+    display: inline;
+    vertical-align: middle;
+    padding-right: 20px;
+}
