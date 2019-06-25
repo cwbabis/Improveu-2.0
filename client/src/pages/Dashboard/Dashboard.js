@@ -13,9 +13,11 @@ import API from "../../utils/API";
 class Dashboard extends Component {
 
   state = {
-    id: "",
+    id: "5d0e8c4b2eaeff7a36c605d4",
     profile: [],
-    goals: []
+    goals: [],
+    goalInput: "Post a Goal.",
+
   };
 
   componentDidMount() {
@@ -29,6 +31,7 @@ class Dashboard extends Component {
         this.setState({
           profile: res.data
         })
+        console.log(this.state)
       }
       )
       .catch(() =>
@@ -56,6 +59,11 @@ class Dashboard extends Component {
       );
   };
 
+  handleGoalInput(event) {
+    this.setState({goalInput: event.target.value})
+    console.log(this.state);
+  };
+
   //This creates on new goal and re-loads the goals page to display all goals including the newly created one
   createGoal = (goalData) => {
     API.createNewGoal(goalData)
@@ -81,7 +89,7 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-3">
             <Row>
-              <UserCard />
+              <UserCard name={this.state.profile.name}/>
             </Row>
             <Row>
               <Achievement />
@@ -89,7 +97,8 @@ class Dashboard extends Component {
           </Col>
           <Col size="md-6">
             <Row>
-              <NewGoalCard />
+              <NewGoalCard createGoal={this.createGoal}
+              goalInput={this.state.goalInput} handleGoalInput={this.handleGoalInput}/>
             </Row>
          {this.state.goals.map(goal => (
               <Row>
