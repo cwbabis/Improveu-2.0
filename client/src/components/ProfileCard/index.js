@@ -10,7 +10,7 @@ function ProfileCard(props) {
                         className="dashProPic" src="https://via.placeholder.com/150" alt="placeholder"></img></a>
                 </div>
                 <div>
-                    <a href="#" ><p class="dashProUsername">Username Placeholder</p></a>
+                    <a href="#" ><p class="dashProUsername">{props.name}</p></a>
                 </div>
                 <div className="card-footer">
                     <div class="">

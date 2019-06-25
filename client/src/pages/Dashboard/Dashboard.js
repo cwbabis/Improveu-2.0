@@ -34,6 +34,9 @@ class Dashboard extends Component {
           <Row>
             <GoalCard />
           </Row>
+          <Row>
+            <GoalCard />
+          </Row>
         </Col>
         <Col size="md-3">
         <Row>

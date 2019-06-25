@@ -6,8 +6,34 @@ import Row from "../../components/Row";
 import Achievement from "../../components/Achievement";
 import Col from "../../components/Col";
 import AboutMe from "../../components/AboutMe";
+import API from "../../utils/API";
 
 class Profile extends Component {
+
+    state = {
+        id: "",
+        profile: {}
+      };
+
+    componentDidMount() {
+        this.getProfile();
+      }
+
+    getProfile = () => {
+        API.getProfile(this.state.id)
+          .then(res =>
+            this.setState({
+              profile: res.data
+            })
+          )
+          .catch(() =>
+            this.setState({
+              profile: {},
+              message: "Please sign-in"
+            })
+          );
+      };
+
     render() {
         return (
             <div>
@@ -16,7 +42,7 @@ class Profile extends Component {
                 <Row>
                     <Col size="md-4">
                         <Row>
-                            <ProfileCard />
+                            <ProfileCard name="Username Placeholder"/>
                         </Row>
                         <Row>
                             <Achievement />
