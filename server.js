@@ -7,13 +7,9 @@ const expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const multer = require("multer");
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-Grid.mongo = mongoose.mongo;
-const gfs = Grid(connection.db)
+const multer = require("multer")
 
-app.use(expressSession({ secret: 'mySecretKey' }));
+app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -21,67 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 
-var storage = GridFsStorage({
-  gfs : gfs,
-  filename: function (req, file, cb) {
-    var datetimestamp = Date.now();
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-  },
-  /** With gridfs we can store aditional meta-data along with the file */
-  metadata: function(req, file, cb) {
-    cb(null, { originalname: file.originalname });
-  },
-  root: 'ctFiles' //root name for collection to store files into
-});
-var storage = GridFsStorage({
-  gfs : gfs,
-  filename: function (req, file, cb) {
-    var datetimestamp = Date.now();
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-  },
-  /** With gridfs we can store aditional meta-data along with the file */
-  metadata: function(req, file, cb) {
-    cb(null, { originalname: file.originalname });
-  },
-  root: 'ctFiles' //root name for collection to store files into
-});
-
-app.get('/file/:filename', function(req, res){
-  gfs.collection('ctFiles'); //set collection name to lookup into
-
-  /** First check if file exists */
-  gfs.files.find({filename: req.params.filename}).toArray(function(err, files){
-    if(!files || files.length === 0){
-      return res.status(404).json({
-        responseCode: 1,
-        responseMessage: "error"
-      });
-    }
-    /** create read stream */
-    var readstream = gfs.createReadStream({
-      filename: files[0].filename,
-      root: "ctFiles"
-    });
-    /** set the proper content type */
-    res.set('Content-Type', files[0].contentType)
-    /** return response */
-    return readstream.pipe(res);
-  });
-});
-
-app.get('/file', function(req, res){
-  gfs.collection('ctFiles'); //set collection name to lookup into
-
-  gfs.files.find().toArray(function(err, files){
-    if(!files || files.length === 0){
-      return res.status(404).json({
-        responseCode: 1,
-        responseMessage: "error"
-      });
-    }
-    res.send(JSON.stringify(files));
-  });
-});
+app.use("/uploads", express.static("uploads"));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
