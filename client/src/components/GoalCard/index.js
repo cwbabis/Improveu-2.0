@@ -7,16 +7,16 @@ function GoalCard(props) {
         <div className="col-md-12">
             <div className="card">
                 <div className="card-header text-muted">
-                    Example goal title
+                    {props.title}
                     <div className="float-right text-muted">
-                        Buddy Status:
+                         {props.partner}
                     </div>
                 </div>
                 <div>
                     <div>
                         <a href="#"><img class="goalcardpropic " src="https://via.placeholder.com/60" alt="placeholder"></img></a>
                         <div>
-                            <a href="#" ><p class="goalCardUsername">Username Placeholder</p></a>
+                            <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
                             <time className="float-left timeago" dateTime="">
                                 Time
                             </time>
@@ -25,7 +25,7 @@ function GoalCard(props) {
                     </div>
                 </div>
                 <div class="card-body">
-                    <p class="goalText">Deserunt esse nisi velit tempor eiusmod. Dolore incididunt eiusmod dolore eu sint culpa ea esse fugiat nulla eu dolor. Lorem elit reprehenderit Lorem nostrud magna ullamco excepteur dolore esse pariatur eu velit. Commodo nostrud in irure magna qui ut proident enim laboris adipisicing enim nisi exercitation. Aliquip elit sunt sit ea tempor nisi Lorem.</p>
+                    <p class="goalText">{props.goal}</p>
                 </div>
 
                 <div className="card-footer text-muted">

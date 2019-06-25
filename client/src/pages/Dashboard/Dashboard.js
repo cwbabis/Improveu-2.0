@@ -14,8 +14,8 @@ class Dashboard extends Component {
 
   state = {
     id: "",
-    profile: {},
-    goals: {}
+    profile: [],
+    goals: []
   };
 
   componentDidMount() {
@@ -25,10 +25,11 @@ class Dashboard extends Component {
 
   getProfile = () => {
     API.getProfile(this.state.id)
-      .then(res =>
+      .then(res => {
         this.setState({
           profile: res.data
         })
+      }
       )
       .catch(() =>
         this.setState({
@@ -40,10 +41,12 @@ class Dashboard extends Component {
 
   getGoals = () => {
     API.getAllGoals()
-      .then(res =>
+      .then(res =>{
         this.setState({
           goals: res.data
         })
+        console.log(this.state)
+      }
       )
       .catch(() =>
         this.setState({
@@ -58,7 +61,16 @@ class Dashboard extends Component {
     API.createNewGoal(goalData)
       .then(
         this.getGoals())
-        .catch(console.log("something went wrong. Please try again later."))
+      .catch(console.log("something went wrong. Please try again later."))
+  }
+
+  updateGoal = (id, data) => {
+    API.updateGoal(id, data)
+    .then((res) => {
+      console.log(res)
+      this.getGoals()
+    })
+    .catch(console.log("something went wrong. Please try again later."))
   }
 
   render() {
@@ -79,15 +91,16 @@ class Dashboard extends Component {
             <Row>
               <NewGoalCard />
             </Row>
-            <Row>
-              <GoalCard />
-            </Row>
-            <Row>
-              <GoalCard />
-            </Row>
-            <Row>
-              <GoalCard />
-            </Row>
+         {this.state.goals.map(goal => (
+              <Row>
+                <GoalCard
+                  title={goal.title}
+                  goal={goal.goal}
+                  creator={goal.userName}
+                  partner={goal.partner}
+                />
+              </Row>
+            ))} 
           </Col>
           <Col size="md-3">
             <Row>
