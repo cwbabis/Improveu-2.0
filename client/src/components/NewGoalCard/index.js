@@ -34,7 +34,7 @@ function init () {
 }
 
 
-function NewGoalCard({props}) {
+function NewGoalCard(props) {
     return (
         <div className="col-md-12">
             <div className="card">
@@ -43,13 +43,13 @@ function NewGoalCard({props}) {
                 </div>
                 <div>
                     <div>
-                        <a href="#"><img class="goalcardpropic " src="https://via.placeholder.com/60" alt="placeholder"></img></a>
-                        <textarea placeholder="Post a Goal." {...props}></textarea>
+                        <a href="#"><img class="goalcardpropic " src="https://via.placeholder.com/60" alt="placeholder" ></img></a>
+                        <textarea placeholder="Post a Goal." value={props.value} onChange={props.handleGoalInput}></textarea>
                         
                     </div>
                 </div>
                 <div className="card-footer text-muted">
-                    <button className="btn btn-primary btn-block btn-sm disabled" {...props}> {/* Change class of disabled to enabled on text area input */}
+                    <button className="btn btn-primary btn-block btn-sm disabled"  onClick={props.handleGoalSubmit}> 
                         Share Goal
                 </button>
                 </div>
