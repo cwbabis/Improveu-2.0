@@ -54,3 +54,37 @@ p {
 time{
     font-size: 12px;
 }
+.commenterProPic{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 0px;
+    margin: 20px 0px 0px 10px;
+}
+.comment-card-body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.form-group{
+    margin: 0px;
+    border-radius: 50%;
+}
+.form-rounded {
+    border-radius: 1rem;
+    font-size: 14px;
+    }
+
+.commentText{
+    margin: 10px 10px 10px 0px;
+    width: 85%;
+    padding: 20px;
+    background: #eff0f1;
+    border-radius: 17%;
+    font-size: 14px;
+    
+}
+/* .textarea{
+    padding: 0px;
+    
+} */
