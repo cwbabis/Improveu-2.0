@@ -46,9 +46,9 @@ function GoalCard(props) {
 
                     </div>
                 </div>
-                {/*  <div class="card-body">
+                <div class="card-body">
                     <p class="goalText">{props.goal}</p>
-                </div> */}
+                </div>
 
                 {/*        <div className="card-footer text-muted">
               
