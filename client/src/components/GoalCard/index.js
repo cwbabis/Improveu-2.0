@@ -30,7 +30,7 @@ function GoalCard(props) {
                         {props.partner}
                     </div>
 
-                    <button style={{ marginLeft: 10, marginRight: 10 }} className="btn btn-success btn-sm float-right buddy-button" id="buddy-button">
+                    <button style={{ marginLeft: 10, marginRight: 10 }} className="btn btn-success btn-sm float-right buddy-button"  id={props.id} onClick={props.handleBuddySubmit}>
                         Buddy Up
                     </button>
                 </div>
@@ -62,8 +62,8 @@ function GoalCard(props) {
                     <div className="form-group">
                         <textarea placeholder="Write a comment..." className="form-control form-rounded" rows="1" id="comment"></textarea>
                     </div>
-
-                    {/*               <button className="btn btn-success btn-sm float-right comment-button" id="buddy-button">
+{/* 
+              <button className="btn btn-success btn-sm float-right comment-button">
                             Comment
                 </button> */}
                 </div>
