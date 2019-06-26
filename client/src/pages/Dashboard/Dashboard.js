@@ -11,14 +11,24 @@ import NewGoalCard from "../../components/NewGoalCard";
 import API from "../../utils/API";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: "5d12ce6ae4c8178bf200d4b5",
+      profile: [],
+      goals: [],
+      newGoal: {
+        goal: "",
+        title: "New Goal",
+        creatorId: this.id,
+        partnerId: ""
+      }
+    };
 
-  state = {
-    id: "5d0e8c4b2eaeff7a36c605d4",
-    profile: [],
-    goals: [],
-    goalInput: "Post a Goal.",
-
-  };
+    this.handleGoalSubmit = this.handleGoalSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleBuddySubmit = this.handleBuddySubmit.bind(this)
+  }
 
   componentDidMount() {
     this.getProfile();
@@ -44,7 +54,7 @@ class Dashboard extends Component {
 
   getGoals = () => {
     API.getAllGoals()
-      .then(res =>{
+      .then(res => {
         this.setState({
           goals: res.data
         })
@@ -59,26 +69,46 @@ class Dashboard extends Component {
       );
   };
 
-  handleGoalInput(event) {
-    this.setState({goalInput: event.target.value})
-    console.log(this.state);
-  };
-
-  //This creates on new goal and re-loads the goals page to display all goals including the newly created one
-  createGoal = (goalData) => {
-    API.createNewGoal(goalData)
-      .then(
-        this.getGoals())
-      .catch(console.log("something went wrong. Please try again later."))
+  handleInputChange(e) {
+    console.log("Inside handleTextArea");
+    let value = e.target.value;
+    this.setState(
+      prevState => ({
+        newGoal: {
+          ...prevState.newGoal,
+          goal: value
+        }
+      }),
+      () => console.log(this.state.newGoal)
+    );
   }
 
-  updateGoal = (id, data) => {
-    API.updateGoal(id, data)
-    .then((res) => {
-      console.log(res)
-      this.getGoals()
-    })
-    .catch(console.log("something went wrong. Please try again later."))
+
+  //This creates on new goal and re-loads the goals page to display all goals including the newly created one
+
+  handleGoalSubmit = event => {
+    event.preventDefault();
+    let goalData = this.state.newGoal;
+    console.log(goalData);
+    API.createNewGoal(goalData)
+      .then(res => this.getGoals())
+      .catch(err => console.log(err));
+  };
+
+  handleBuddySubmit = event => {
+    event.preventDefault();
+    let buddyData = { partnerId: this.state.id };
+    let goalId = event.target.id;
+
+    console.log(buddyData);
+    console.log(goalId);
+
+    API.updateGoal(goalId, buddyData)
+      .then((res) => {
+        console.log(res)
+        this.getGoals()
+      })
+      .catch(console.log("something went wrong. Please try again later"))
   }
 
   render() {
@@ -89,7 +119,7 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-3">
             <Row>
-              <UserCard name={this.state.profile.name}/>
+              <UserCard name={this.state.profile.name} />
             </Row>
             <Row>
               <Achievement />
@@ -97,19 +127,24 @@ class Dashboard extends Component {
           </Col>
           <Col size="md-6">
             <Row>
-              <NewGoalCard createGoal={this.createGoal}
-              goalInput={this.state.goalInput} handleGoalInput={this.handleGoalInput}/>
+              <NewGoalCard
+                handleGoalSubmit={this.handleGoalSubmit}
+                value={this.state.newGoal.goal}
+                handleGoalInput={this.handleInputChange}
+                 />
             </Row>
-         {this.state.goals.map(goal => (
+            {this.state.goals.reverse().map(goal => (
               <Row>
                 <GoalCard
+                  id={goal._id}
                   title={goal.title}
                   goal={goal.goal}
                   creator={goal.userName}
                   partner={goal.partner}
+                  handleBuddySubmit={this.handleBuddySubmit}
                 />
               </Row>
-            ))} 
+            ))}
           </Col>
           <Col size="md-3">
             <Row>

@@ -1,11 +1,12 @@
-var authController = require("../controllers/authController.js");
+var authController = require("../../controllers/authController");
+const router= require("express").Router();
 
-module.exports = function(app, passport) {
-  app.get("/signup", authController.signup);
+module.exports = (passport) => {
+  router.get("/signup", authController.signup);
 
-  app.get("/signin", authController.signin);
+  router.get("/signin", authController.signin);
 
-  app.post(
+  router.post(
     "/signup",
     passport.authenticate("local-signup", {
       successRedirect: "/dashboard",
@@ -14,9 +15,9 @@ module.exports = function(app, passport) {
     })
   );
 
-  app.post(
+  router.post(
     "/signin",
-    passport.authenticate("local-signin", {
+    passport.authenticate("local-login", {
       successRedirect: "/dashboard",
 
       failureRedirect: "/signin"
