@@ -14,45 +14,47 @@ class Profile extends Component {
         id: "5d12ce6ae4c8178bf200d4b5",
         profile: {},
         goals: []
-      };
+    };
 
     componentDidMount() {
         this.getProfile();
         this.getGoals();
-      }
+    }
 
     getProfile = () => {
         API.getProfile(this.state.id)
-          .then(res =>{console.log (res.data)
-            this.setState({
-              profile: res.data
-            })}
-          )
-          .catch(() =>
-            this.setState({
-              profile: {},
-              message: "Please sign-in"
-            })
-          );
-      };
+            .then(res => {
+                console.log(res.data)
+                this.setState({
+                    profile: res.data
+                })
+            }
+            )
+            .catch(() =>
+                this.setState({
+                    profile: {},
+                    message: "Please sign-in"
+                })
+            );
+    };
 
-      getGoals = () => {
+    getGoals = () => {
         API.getAllGoals()
-          .then(res => {
-            this.setState({
-              goals: res.data
-            })
-            console.log(this.state)
-          }
-          )
-          .catch(() =>
-            this.setState({
-              goals: {},
-              message: "Looks like there aren't any goals here yet."
-            })
-          );
-      };
-    
+            .then(res => {
+                this.setState({
+                    goals: res.data
+                })
+                console.log(this.state)
+            }
+            )
+            .catch(() =>
+                this.setState({
+                    goals: {},
+                    message: "Looks like there aren't any goals here yet."
+                })
+            );
+    };
+
 
     render() {
         return (
@@ -62,7 +64,7 @@ class Profile extends Component {
                 <Row>
                     <Col size="md-4">
                         <Row>
-                            <ProfileCard name={this.state.profile.name}/>
+                            <ProfileCard name={this.state.profile.name} />
                         </Row>
                         <Row>
                             <Achievement />
@@ -70,7 +72,7 @@ class Profile extends Component {
                     </Col>
                     <div className="col-md-8">
                         <div className="h-100">
-                                <AboutMe />
+                            <AboutMe />
                         </div>
                     </div>
                 </Row>
@@ -79,21 +81,19 @@ class Profile extends Component {
                     <Row>
                         <h1 className="text-center">My Goals</h1>
                     </Row>
-                    <Col size="md-6">
-                    {this.state.goals.reverse().map(goal => (
-              <Row>
-                <GoalCard
-                  id={goal._id}
-                  title={goal.title}
-                  goal={goal.goal}
-                  creator={goal.userName}
-                  partner={goal.partner}
-                  handleBuddySubmit={this.handleBuddySubmit}
-                />
-              </Row>
-            ))}
+                    <Col size="md-12">
+                        {this.state.goals.reverse().map(goal => (
+                                <GoalCard
+                                    id={goal._id}
+                                    title={goal.title}
+                                    goal={goal.goal}
+                                    creator={goal.userName}
+                                    partner={goal.partner}
+                                    handleBuddySubmit={this.handleBuddySubmit}
+                                />
+                        ))}
                     </Col>
-                
+
 
                 </Row>
             </div>

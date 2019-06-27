@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 /* import "./App.css"; */
-import GoalCard from "../../components/GoalCard";
+import GoalCard from "../../components/DashboardGoal";
 import Nav from "../../components/Nav";
 import UserCard from "../../components/UserCard";
 import Row from "../../components/Row";

@@ -22,7 +22,7 @@ document.body.onkeydown = function (e) {
 
 function GoalCard(props) {
     return (
-        <div className="col-md-6">
+        <div className="col-md-12">
             <div className="card">
                 <div className="card-header text-muted">
                     {props.title}

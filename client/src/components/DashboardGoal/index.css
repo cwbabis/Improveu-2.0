@@ -31,12 +31,6 @@ hr {
     /* #F7F7F7 */
 }
 
-.col-md-6 {
-    margin: 0;
-    margin-bottom: 30px;
-    float:left;
-}
-
 .card-body {
     padding-top: 0px;
     padding-bottom: 0px;
