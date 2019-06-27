@@ -32,6 +32,7 @@ connection.once('open', function () {
 // API routes
 
 app.use(routes);
+require("./routes/api/authRoutes")(passport);
 
 
 // Send every other request to the React app

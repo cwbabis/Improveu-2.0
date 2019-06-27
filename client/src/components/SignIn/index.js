@@ -11,7 +11,7 @@ function SignIn(props) {
                         </ul>
                         <div className="tab-content card nopadding">
                             <div id="signin" className="tab-pane fade-in active">
-                                <form action="#">
+                                <form method='post' action="api/signin">
                                     <div className="form-group mt-3">
                                         <label htmlFor="UserName">Username</label>
                                         <input type="text" className="form-control" id="email" />

@@ -16,7 +16,7 @@ module.exports = (passport) => {
   );
 
   router.post(
-    "/signin",
+    "/api/signin",
     passport.authenticate("local-login", {
       successRedirect: "/dashboard",
 
