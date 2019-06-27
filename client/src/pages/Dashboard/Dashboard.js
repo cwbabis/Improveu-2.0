@@ -14,7 +14,8 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "5d12ce6ae4c8178bf200d4b5",
+        id: "5d141a21f7455bb624c96833",
+        id: "",
       profile: [],
       goals: [],
       newGoal: {
