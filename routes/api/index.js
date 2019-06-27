@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const goalRoutes = require("./goals");
 const userRoutes = require("./users");
-const passportRoutes = require("./authRoutes.js")
+const passportRoutes = require("./authRoutes")
 
 // goal routes
 router.use("/goals", goalRoutes);

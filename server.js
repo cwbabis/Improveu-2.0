@@ -7,6 +7,7 @@ const expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
+require("./passport/passport")(passport);
 
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
