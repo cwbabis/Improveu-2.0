@@ -93,17 +93,7 @@ class Profile extends Component {
               </Row>
             ))}
                     </Col>
-                    <Col size="md-6">
-                        <Row>
-                            <GoalCard />
-                        </Row>
-                        <Row >
-                            <GoalCard />
-                        </Row>
-                        <Row >
-                            <GoalCard />
-                        </Row>
-                    </Col>
+                
 
                 </Row>
             </div>
