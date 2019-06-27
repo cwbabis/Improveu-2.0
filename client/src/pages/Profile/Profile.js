@@ -11,20 +11,22 @@ import API from "../../utils/API";
 class Profile extends Component {
 
     state = {
-        id: "",
-        profile: {}
+        id: "5d141a21f7455bb624c96833",
+        profile: {},
+        goals: []
       };
 
     componentDidMount() {
         this.getProfile();
+        this.getGoals();
       }
 
     getProfile = () => {
         API.getProfile(this.state.id)
-          .then(res =>
+          .then(res =>{console.log (res.data)
             this.setState({
               profile: res.data
-            })
+            })}
           )
           .catch(() =>
             this.setState({
@@ -34,6 +36,24 @@ class Profile extends Component {
           );
       };
 
+      getGoals = () => {
+        API.getAllGoals()
+          .then(res => {
+            this.setState({
+              goals: res.data
+            })
+            console.log(this.state)
+          }
+          )
+          .catch(() =>
+            this.setState({
+              goals: {},
+              message: "Looks like there aren't any goals here yet."
+            })
+          );
+      };
+    
+
     render() {
         return (
             <div>
@@ -42,7 +62,7 @@ class Profile extends Component {
                 <Row>
                     <Col size="md-4">
                         <Row>
-                            <ProfileCard name="Username Placeholder"/>
+                            <ProfileCard name={this.state.profile.name}/>
                         </Row>
                         <Row>
                             <Achievement />
@@ -60,15 +80,18 @@ class Profile extends Component {
                         <h1 className="text-center">My Goals</h1>
                     </Row>
                     <Col size="md-6">
-                        <Row>
-                            <GoalCard />
-                        </Row>
-                        <Row >
-                            <GoalCard />
-                        </Row>
-                        <Row >
-                            <GoalCard />
-                        </Row>
+                    {this.state.goals.reverse().map(goal => (
+              <Row>
+                <GoalCard
+                  id={goal._id}
+                  title={goal.title}
+                  goal={goal.goal}
+                  creator={goal.userName}
+                  partner={goal.partner}
+                  handleBuddySubmit={this.handleBuddySubmit}
+                />
+              </Row>
+            ))}
                     </Col>
                     <Col size="md-6">
                         <Row>
