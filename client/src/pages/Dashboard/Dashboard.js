@@ -78,8 +78,11 @@ class Dashboard extends Component {
           ...prevState.newGoal,
           goal: value
         }
-      }),
-      () => console.log(this.state.newGoal)
+      }
+      ),
+      () => {console.log(this.state.newGoal)
+        this.getGoals();
+      }
     );
   }
 
@@ -131,7 +134,7 @@ class Dashboard extends Component {
                 handleGoalSubmit={this.handleGoalSubmit}
                 value={this.state.newGoal.goal}
                 handleGoalInput={this.handleInputChange}
-                 />
+              />
             </Row>
             {this.state.goals.reverse().map(goal => (
               <Row>

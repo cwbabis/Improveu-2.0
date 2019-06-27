@@ -11,7 +11,7 @@ import API from "../../utils/API";
 class Profile extends Component {
 
     state = {
-        id: "",
+        id: "5d12ce6ae4c8178bf200d4b5",
         profile: {}
       };
 
@@ -21,10 +21,12 @@ class Profile extends Component {
 
     getProfile = () => {
         API.getProfile(this.state.id)
-          .then(res =>
+          .then(res => {
             this.setState({
               profile: res.data
             })
+            console.log(res.data);
+        }
           )
           .catch(() =>
             this.setState({
