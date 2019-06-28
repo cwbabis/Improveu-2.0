@@ -7,11 +7,11 @@ const expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
-require("./passport/passport")(passport);
 
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
+require("./passport/passport")(passport);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
