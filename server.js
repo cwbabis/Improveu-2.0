@@ -7,7 +7,6 @@ const expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const multer = require("multer")
 
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
@@ -17,17 +16,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.use("/uploads", express.static("uploads"));
-
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
-}
+};
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/improveu");
 const connection = mongoose.connection;
 connection.once('open', function () {
   console.log("MongoDB database connection established successfully");
-})
+});
 // API routes
 
 app.use(routes);

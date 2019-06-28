@@ -1,56 +1,71 @@
-var express = require('express');
-var Image = require('../models/image');
-var ImageRouter = express.Router();
-const multer = require('multer');
-
+const express = require('express');
+const fs = require('fs');
+var app = express();
+var router = express.Router();
+const db = require("../../models");
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './../uploads');
+    destination: function (req, res, cb) {
+        cb(null, "/uploads")
     },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + file.originalname);
+    filename: function (req, res, cb) {
+        cb(null, res.fieldname + "-" + Date.now())
     }
 });
+const multer = require('multer');
+const upload = multer({ storage: storage });
+router.route('/uploads')
+app.post('/uploadphoto', upload.single('picture'), (req, res) => {
+    var img = fs.readFileSync(req.file.path);
+    var encode_image = img.toString('base64');
+    // Define a JSONobject for the image attributes for saving to database
 
-const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-        cb(null, true);
-    } else {
-        // rejects storing a file
-        cb(null, false);
-    }
-}
+    var finalImg = {
+        contentType: req.file.mimetype,
+        image: new Buffer(encode_image, 'base64')
+    };
+    db.collection("image").insertOne(finalImg, (err, result) => {
+        console.log(result)
 
-const upload = multer({
-    storage: storage,
-    limits: {
-        fileSize: 1024 * 1024 * 5
-    },
-    fileFilter: fileFilter
+        if (err) return console.log(err)
+
+        console.log('saved to database')
+        // res.redirect('/')
+
+
+    })
 });
 
-/* 
-    stores image in uploads folder
-    using multer and creates a reference to the 
-    file
-*/
-ImageRouter.route("/uploadmulter")
-    .post(upload.single('imageData'), (req, res, next) => {
-        console.log(req.body);
-        const newImage = new Image({
-            imageName: req.body.imageName,
-            imageData: req.file.path
-        });
+app.get("/photos", (req, res) => {
+    db.collection("images").find(toArray((err, result) =>{
+        const imgArray = result.map(element => element._id);
+        if (err) return console.log(err)
+        res.send(imgArray)
+    }))
+});
 
-        newImage.save()
-            .then((result) => {
-                console.log(result);
-                res.status(200).json({
-                    success: true,
-                    document: result
-                });
-            })
-            .catch((err) => next(err));
-    });
+app.get('/photo/:id', (req, res) => {
+    var filename = req.params.id;
+    
+    db.collection('image').findOne({'_id': ObjectId(filename) }, (err, result) => {
+    
+        if (err) return console.log(err)
+    
+       res.contentType('image/jpeg');
+       res.send(result.image.buffer)
+      
+       
+      })
+    })
+// new_img.img.contentType = 'image/jpeg';  // or 'image/png'
+// new_img.save();
+// res.json({ message: 'New image added to the db!' });
+// app.get(function (req, res) {
+//     Image.findOne({}, 'img createdAt', function (err, img) {
+//         if (err)
+//             res.send(err);
+//         res.contentType('json');
+//         res.send(img);
+//     }).sort({ createdAt: 'desc' });
+// });
 
 module.exports = ImageRouter;
