@@ -3,17 +3,23 @@ const path = require("path");
 const bodyParser = require("body-parser")
 const PORT = process.env.PORT || 3001;
 const expressSession = require('express-session');
-const passport = require('passport');
 const app = express();
 const mongoose = require("mongoose");
-const routes = require("../Improveu-2.0/routes");
+const routes = require("./routes");
+
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
+require("./passport/passport")(passport);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
+/* app.use(multer({dest: "./uploads",
+rename: function (fieldname, filename){
+  return filename
+},
+})); */
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
@@ -26,6 +32,7 @@ connection.once('open', function () {
 // API routes
 
 app.use(routes);
+
 
 // Send every other request to the React app
 app.get("*", (req, res) => {
