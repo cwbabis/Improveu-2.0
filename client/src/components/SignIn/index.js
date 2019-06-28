@@ -14,14 +14,14 @@ function SignIn(props) {
                                 <form method='post' action="signin">
                                     <div className="form-group mt-3">
                                         <label htmlFor="UserName">Username</label>
-                                        <input type="text" className="form-control" id="username" />
+                                        <input type="text" className="form-control" id="username" value={props.name} onChange={props.handlNameChange} />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="pwd">Password</label>
-                                        <input type="password" className="form-control" id="password" />
+                                        <input type="password" className="form-control" id="password" value={props.pass} onChange={props.handlePassChange} />
                                     </div>
                                     
-                                    <button type="submit" className="btn btn-success btn-block">Submit</button>
+                                    <button type="submit" className="btn btn-success btn-block" onClick={props.handleUserSubmit}>Submit</button>
 {/*                                     <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
                                 </form>
                                 <br />
