@@ -9,7 +9,7 @@ mongoose.connect(
 const improveSeed = [
     {
         name: "John Smith",
-        password: "JSmith21",
+        password: "jsmith21",
         title: "Read more",
         goal: "I would lke to read more throughout the week, possibly start with 4 paragraphs 3 times a week."
     }
