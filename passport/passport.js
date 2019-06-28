@@ -1,8 +1,9 @@
 var bCrypt = require("bcrypt-nodejs");
+var passport = require('passport');
+var User = require("../models/user");
+var LocalStrategy = require('passport-local').Strategy;
 
-module.exports = function(passport, user) {
-  var User = user;
-  var LocalStrategy = require("passport-local").Strategy;
+module.exports = function(passport) {
 
     passport.serializeUser(function(user, done) {
         console.log('serializing user: ');console.log(user);
@@ -16,7 +17,7 @@ module.exports = function(passport, user) {
         });
     });
 
-    passport.use('signin', new LocalStrategy({
+/*     passport.use('local-signin', new LocalStrategy({
         passReqToCallback : true
     },
     function(req, username, password, done) { 
@@ -29,12 +30,12 @@ module.exports = function(passport, user) {
                 // Username does not exist, log the error and redirect back
                 if (!user){
                     console.log('User Not Found with username '+username);
-                    return done(null, false, req.flash('message', 'User Not found.'));                 
+                    
                 }
                 // User exists but wrong password, log the error 
                 if (!isValidPassword(user, password)){
                     console.log('Invalid Password');
-                    return done(null, false, req.flash('message', 'Invalid Password')); // redirect back to login page
+                    
                 }
                 // User and password both match, return user from done method
                 // which will be treated like success
@@ -43,13 +44,34 @@ module.exports = function(passport, user) {
         );
 
     })
-);
+); */
+
+passport.use('local-login', new LocalStrategy({
+
+    passReqToCallback : true
+},
+function(req, username, password, done) {
+
+    User.getUserByUsername(username, function(err, user) {
+        if(err)
+            return done(err);
+
+        if(!user)
+            return done(null, false);
+
+        if(!isValidPassword(user, password))
+            return done(null, false);
+        console.log("test");
+
+        return done(null, user);
+    });
+}));
 
 
 var isValidPassword = function(user, password){
-    return bCrypt.compareSync(password, user.password);
+    return bCrypt.compareSync(password, user);
 }
-passport.use('signup', new LocalStrategy({
+passport.use('local-signup', new LocalStrategy({
     passReqToCallback : true // allows us to pass back the entire request to the callback
 },
 function(req, username, password, done) {
@@ -65,7 +87,7 @@ function(req, username, password, done) {
             // already exists
             if (user) {
                 console.log('User already exists with username: '+username);
-                return done(null, false, req.flash('message','User Already Exists'));
+/*                 return done(null, false, req.flash('message','User Already Exists')); */
             } else {
                 // if there is no user with that email
                 // create the user

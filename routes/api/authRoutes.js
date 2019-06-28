@@ -1,5 +1,6 @@
 const router= require("express").Router();
-const passport = require('passport');
+const passport = require("passport");
+
 
   router.post(
     "/signup",
@@ -12,7 +13,7 @@ const passport = require('passport');
 
   router.post(
     "/signin",
-    passport.authenticate("local-signin", {
+    passport.authenticate("local-login", {
       successRedirect: "/dashboard",
 
       failureRedirect: "/#"
