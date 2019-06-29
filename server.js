@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const passport = require("passport");
 
-app.use(expressSession({secret: 'mySecretKey'}));
+app.use(expressSession({ secret: 'mySecretKey' }));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passport/passport")(passport);
@@ -23,11 +23,11 @@ rename: function (fieldname, filename){
 })); */
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
+  app.use(express.static(__dirname + '/client/build'));
 }
 mongoose.connect
-process.env.MONGODB_URI || 
-"mongodb://user:p4ssword@ds033015.mlab.com:33015/heroku_549nnk4n"
+process.env.MONGODB_URI ||
+  "mongodb://user:p4ssword@ds033015.mlab.com:33015/heroku_549nnk4n"
 
 const connection = mongoose.connection;
 connection.once('open', function () {
