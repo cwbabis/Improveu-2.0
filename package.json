@@ -1,5 +1,6 @@
 {
   "name": "mern",
+  "homepage": "https://improveu.herokuapp.com/",
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",

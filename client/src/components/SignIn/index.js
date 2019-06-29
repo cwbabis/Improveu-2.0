@@ -11,14 +11,14 @@ function SignIn(props) {
                         </ul>
                         <div className="tab-content card nopadding">
                             <div id="signin" className="tab-pane fade-in active">
-                                <form action="#">
+                                <form method='post' action="signin">
                                     <div className="form-group mt-3">
                                         <label htmlFor="UserName">Username</label>
-                                        <input type="text" className="form-control" id="email" />
+                                        <input type="text" className="form-control" id="username" />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="pwd">Password</label>
-                                        <input type="password" className="form-control" id="pwd" />
+                                        <input type="password" className="form-control" id="password" />
                                     </div>
                                     
                                     <button type="submit" className="btn btn-success btn-block">Submit</button>
@@ -27,10 +27,10 @@ function SignIn(props) {
                                 <br />
                             </div>
                             <div id="menu1" className="tab-pane fade">
-                                <form action="#">
+                                <form method='post' action="signup">
                                     <div className="form-group mt-3">
                                         <label htmlFor="UserName">Username</label>
-                                        <input type="text" className="form-control" id="email" />
+                                        <input type="text" className="form-control" id="username" />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="email">Email address</label>
@@ -38,11 +38,11 @@ function SignIn(props) {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="pwd">Password</label>
-                                        <input type="password" className="form-control" id="pwd" />
+                                        <input type="password" className="form-control" id="password" />
                                     </div>
                                     <div className="form-group mb-0 ">
                                         <label htmlFor="pwd">Confirm Password</label>
-                                        <input type="password" className="form-control" id="pwd" />
+                                        <input type="password" className="form-control" id="password" />
                                     </div>
                                     <p>Minimum length is 8 characters</p>
                                     <button type="submit" className="mt-3 btn btn-info btn-block">Register</button>

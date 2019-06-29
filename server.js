@@ -7,6 +7,7 @@ const expressSession = require('express-session');
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
+require("./passport/passport")(passport);
 
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
@@ -28,6 +29,7 @@ connection.once('open', function () {
 // API routes
 
 app.use(routes);
+
 
 // Send every other request to the React app
 app.get("*", (req, res) => {

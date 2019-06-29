@@ -13,9 +13,9 @@ export default {
     return axios.post("/api/goals", goalData);
   },
   // Updates a specific goal
-/*   updateGoal: function(id, data) {
-    return axios.put("/api/books/" + id, );
-  }, */
+  updateGoal: function(id, data) {
+    return axios.put("/api/goals/" + id, data);
+  }, 
   // Saves an book to the database
   createNewUser: function(userData) {
     return axios.post("/api/user", userData);

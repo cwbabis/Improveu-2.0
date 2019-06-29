@@ -1,5 +1,4 @@
 import React from "react";
-import Comment from "../Comment";
 import "./index.css";
 
 /* const buddyStyle{
@@ -23,7 +22,7 @@ document.body.onkeydown = function (e) {
 
 function GoalCard(props) {
     return (
-        <div className="col-md-6">
+        <div className="col-md-12">
             <div className="card">
                 <div className="card-header text-muted">
                     {props.title}
@@ -83,7 +82,6 @@ function GoalCard(props) {
                         border raidius is messed up depending on size of comment. need to use different css property
                     </div>
                 </div>
-                <Comment/>
             </div>
         </div >
     );
