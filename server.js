@@ -7,11 +7,14 @@ const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const passport = require("passport");
+require("./passport")(passport);
+var flash    = require('connect-flash');
 
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
-require("./passport/passport")(passport);
+app.use(flash());
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,11 +26,11 @@ rename: function (fieldname, filename){
 })); */
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
+  app.use('client/public', express.static(path.join(__dirname, 'client/build')));
 }
-mongoose.connect
+mongoose.connect(
 process.env.MONGODB_URI || 
-"mongodb://user:p4ssword@ds033015.mlab.com:33015/heroku_549nnk4n"
+"mongodb://localhost/improveu")
 
 const connection = mongoose.connection;
 connection.once('open', function () {

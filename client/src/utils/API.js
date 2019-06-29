@@ -18,6 +18,6 @@ export default {
   }, 
   // Saves an book to the database
   createNewUser: function(userData) {
-    return axios.post("/api/user", userData);
+    return axios.post("api/passport/signup", userData);
   }
 };
