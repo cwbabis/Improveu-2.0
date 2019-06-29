@@ -9,3 +9,11 @@
     padding-right: 30px;
     padding-left: 30px;
 }
+btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #244579;
+    opacity: 1;
+}
+.btn-primary{
+    background-color: #244579;
+    opacity: .8;
+}
