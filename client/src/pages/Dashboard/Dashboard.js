@@ -82,7 +82,6 @@ class Dashboard extends Component {
       }
       ),
       () => {console.log(this.state.newGoal)
-        this.getGoals();
       }
     );
   }
@@ -133,7 +132,7 @@ class Dashboard extends Component {
             <Row>
               <NewGoalCard
                 handleGoalSubmit={this.handleGoalSubmit}
-                value={this.state.newGoal.goal}
+                goal={this.state.newGoal.goal}
                 handleGoalInput={this.handleInputChange}
               />
             </Row>

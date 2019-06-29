@@ -12,16 +12,16 @@ function SignIn(props) {
                         <div className="tab-content card nopadding">
                             <div id="signin" className="tab-pane fade-in active">
                                 <form method='post' action="signin">
-                                    <div className="form-group mt-3">
+                                    <div className="form-group mt-3" >
                                         <label htmlFor="UserName">Username</label>
-                                        <input type="text" className="form-control" id="username" value={props.name} onChange={props.handlNameChange} />
+                                        <input type="text" onChange={props.handleSignInNameChange} value={props.signInName} className="form-control" id="username" />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="pwd">Password</label>
-                                        <input type="password" className="form-control" id="password" value={props.pass} onChange={props.handlePassChange} />
+                                        <input type="password" onChange={props.handleSignInPassChange} value={props.signInPass} className="form-control" id="password"  />
                                     </div>
-                                    
-                                    <button type="submit" className="btn btn-success btn-block" onClick={props.handleUserSubmit}>Submit</button>
+                                    <br/>
+                                    <button type="submit" className="btn btn-success btn-block" onClick={props.handleSignInSubmit}>Submit</button>
 {/*                                     <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
                                 </form>
                                 <br />
@@ -30,22 +30,22 @@ function SignIn(props) {
                                 <form method='post' action="signup">
                                     <div className="form-group mt-3">
                                         <label htmlFor="UserName">Username</label>
-                                        <input type="text" className="form-control" id="username" />
+                                        <input type="text" onChange={props.handleRegisterNameChange} value={props.registerName} className="form-control" id="username" />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="email">Email address</label>
-                                        <input type="email" className="form-control" id="email" />
+                                        <input type="email" onChange={props.handleRegisterEmailChange} value={props.registerEmail} className="form-control" id="email" />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="pwd">Password</label>
-                                        <input type="password" className="form-control" id="password" />
+                                        <input type="password" onChange={props.handleRegisterPassChange} value={props.registerPass} className="form-control" id="password" />
                                     </div>
-                                    <div className="form-group mb-0 ">
+{/*                                     <div className="form-group mb-0 ">
                                         <label htmlFor="pwd">Confirm Password</label>
                                         <input type="password" className="form-control" id="password" />
-                                    </div>
+                                    </div> */}
                                     <p>Minimum length is 8 characters</p>
-                                    <button type="submit" className="mt-3 btn btn-info btn-block">Register</button>
+                                    <button type="submit" onClick={props.handleRegisterSubmit} className="mt-3 btn btn-info btn-block">Register</button>
                                    {/*  <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
                                 </form>
                                 <br />

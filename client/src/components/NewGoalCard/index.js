@@ -44,7 +44,7 @@ function NewGoalCard(props) {
                 <div>
                     <div>
                         <a href="#"><img class="goalcardpropic " src="https://via.placeholder.com/60" alt="placeholder" ></img></a>
-                        <textarea placeholder="Post a Goal." value={props.value} onChange={props.handleGoalInput}></textarea>
+                        <textarea placeholder="Post a Goal." value={props.goal} onChange={props.handleGoalInput}></textarea>
                         
                     </div>
                 </div>
