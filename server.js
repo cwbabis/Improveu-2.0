@@ -10,7 +10,7 @@ const passport = require("passport");
 require("./passport")(passport);
 var flash    = require('connect-flash');
 
-app.use(expressSession({secret: 'mySecretKey'}));
+app.use(expressSession({ secret: 'mySecretKey' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -26,11 +26,11 @@ rename: function (fieldname, filename){
 })); */
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use('client/public', express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(__dirname + '/client/build'));
 }
-mongoose.connect(
-process.env.MONGODB_URI || 
-"mongodb://localhost/improveu")
+mongoose.connect
+process.env.MONGODB_URI ||
+  "mongodb://user:p4ssword@ds033015.mlab.com:33015/heroku_549nnk4n"
 
 const connection = mongoose.connection;
 connection.once('open', function () {

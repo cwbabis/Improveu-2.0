@@ -1,10 +1,37 @@
-.wrapper {
-  background: #ECEFF1;
+.split {
   height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  overflow: auto;
-  margin-top: 0px;
+  width: 50%;
+  position: fixed;
+  z-index: -5;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+
+.left {
+  left: 0;
+  background-color: #244579;
+}
+
+.texture {
+  background: #244579 url("https://www.transparenttextures.com/patterns/light-wool.png");
+}
+
+/* Control the right side */
+
+.right {
+  right: 0;
+  background-color: white;
+}
+
+/* If you want the content centered horizontally and vertically */
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
