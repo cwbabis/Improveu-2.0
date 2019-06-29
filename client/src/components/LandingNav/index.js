@@ -9,7 +9,7 @@ function LandingNav() {
                 <img id="userPhoto" />
                 <p id="local-name"></p>
             </div> */}
-                <div class="nav-title">
+                <div className="nav-title">
                     <h1>Improveu</h1>
                 </div>
          
