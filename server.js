@@ -25,7 +25,10 @@ rename: function (fieldname, filename){
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/improveu");
+mongoose.connect
+process.env.MONGODB_URI || 
+"mongodb://user:p4ssword@ds033015.mlab.com:33015/heroku_549nnk4n"
+
 const connection = mongoose.connection;
 connection.once('open', function () {
   console.log("MongoDB database connection established successfully");
