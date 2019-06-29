@@ -1,0 +1,25 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    height: 50px;
+    border-top: solid #ccc 1px;
+    line-height: 3;
+}
+
+a {
+    color: #aab8c2;
+    padding-right: 15px;
+    font-size: .85rem;
+}
+
+.links:hover {
+    color: #244579;
+    text-decoration: underline;
+}
+.noPad{
+    padding: 0px;
+}

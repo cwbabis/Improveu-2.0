@@ -1,9 +1,17 @@
+.title{
+    top: 20%;
+    left: 41%;
+    position: absolute;
+}
 .navbar .navbar-nav {
     display: inline-block;
     float: none;
     vertical-align: top;
 }
-
+.navbar-default{
+    padding: 0px;
+    margin-top: 20px;
+}
 .navbar .navbar-collapse {
     text-align: center;
 }
@@ -14,6 +22,7 @@
 
 h1 {
     margin: 0px;
+    font-size: 40px;
 }
 
 .collapse {
@@ -47,8 +56,8 @@ h1 {
 
 .navbar {
     background-color: #244579;
-    text-align: center;
-    justify-content: center;
+    width: 50%;
+    
 }
 
 .navbar .navbar-brand {

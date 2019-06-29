@@ -4,13 +4,13 @@ import "./style.css";
 function LandingNav() {
     return (
         <nav className="navbar navbar-default">
-            <div className="container">
+            <div className="container title">
                 {/*    <div classNameName="user-name">
                 <img id="userPhoto" />
                 <p id="local-name"></p>
             </div> */}
                 <div className="nav-title">
-                    <h1>Improveu</h1>
+                    <h1 >Improveu</h1>
                 </div>
          
             </div>{/* 
