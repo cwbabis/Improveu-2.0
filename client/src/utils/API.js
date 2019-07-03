@@ -16,6 +16,10 @@ export default {
   updateGoal: function(id, data) {
     return axios.put("/api/goals/" + id, data);
   }, 
+  //authenticats user
+  logIn: function(userData) {
+    return axios.post("api/passport/login", userData);
+  },
   // Saves an book to the database
   createNewUser: function(userData) {
     return axios.post("api/passport/signup", userData);

@@ -131,9 +131,9 @@ class Landing extends Component {
     event.preventDefault();
     let userData = this.state.returnUser;
     console.log(userData);
-    /*         API.createNewUser(userData)
+    API.logIn(userData)
               .then(res => console.log(res))
-              .catch(err => console.log(err)); */
+              .catch(err => console.log(err)); 
   };
 
   handleRegisterSubmit = event => {
