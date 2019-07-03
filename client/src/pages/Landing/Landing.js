@@ -25,7 +25,8 @@ class Landing extends Component {
         username: "",
         password: "",
         email: ""
-      }
+      },
+      profileId: props.profileId
     };
 
     this.handleSignInSubmit = this.handleSignInSubmit.bind(this)
@@ -40,7 +41,7 @@ class Landing extends Component {
 
 
   handleSignInNameChange(e) {
-    console.log("Inside name form");
+    console.log(this.state.profileId);
     let name = e.target.value;
     this.setState(
       prevState => ({
