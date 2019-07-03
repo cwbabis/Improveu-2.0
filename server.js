@@ -28,9 +28,7 @@ rename: function (fieldname, filename){
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + '/client/build'));
 }
-mongoose.connect
-process.env.MONGODB_URI ||
-  "mongodb://user:p4ssword@ds033015.mlab.com:33015/heroku_549nnk4n"
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/improveu");
 
 const connection = mongoose.connection;
 connection.once('open', function () {
