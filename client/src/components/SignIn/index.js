@@ -3,7 +3,7 @@ import "./style.css";
 
 function SignIn(props) {
     return (
-                <div className="col-md-4 offset-md-2">
+                <div className="col-md-4 offset-md-2 wrap">
                     <div className="col-sm-12">
                         <ul className="nav-links new-session-tabs nav-tabs nav">
                             <li className="nav-item" style={{ width: '50%'}}><a className="nav-link active show text-center" data-toggle="tab" href="#signin">Sign in</a></li>
