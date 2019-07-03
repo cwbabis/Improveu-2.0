@@ -15,7 +15,8 @@ class App extends Component {
     this.update = this.update.bind(this);
   }
 
-  update = id => {
+  update = (id) => {
+    console.log(id);
     this.setState({ profileId: id });
   }
 
