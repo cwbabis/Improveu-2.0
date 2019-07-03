@@ -10,17 +10,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileId: "test"
+      profileId: "5d1c0535d9496dcf1447a8f3"
     }
+    this.update = this.update.bind(this);
+  }
+
+  update = id => {
+    this.setState({ profileId: id });
   }
 
   render() {
     return (
       <Router>
         <div>
-          <Route exact path="/" profileId={this.state.profileId} component={Landing} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/" render={(routeProps) => (
+            <Landing {...routeProps} {...this.state} update={this.update} />
+          )} />
+          <Route exact path="/profile" render={(routeProps) => (
+            <Profile {...routeProps} {...this.state} update={this.update} />
+          )} />
+          <Route exact path="/dashboard" render={(routeProps) => (
+            <Dashboard {...routeProps} {...this.state} update={this.update} />
+          )} />
           {/*   <Footer /> */}
         </div>
       </Router>

@@ -11,7 +11,7 @@ import API from "../../utils/API";
 class Profile extends Component {
 
     state = {
-        id: "5d12ce6ae4c8178bf200d4b5",
+        id: this.props.profileId,
         profile: {},
         goals: []
     };
@@ -64,7 +64,7 @@ class Profile extends Component {
                 <Row>
                     <Col size="md-4">
                         <Row>
-                            <ProfileCard name={this.state.profile.name} />
+                            <ProfileCard name={this.state.profile.username} />
                         </Row>
                         <Row>
                             <Achievement />
