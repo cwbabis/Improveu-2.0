@@ -14,8 +14,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        id: "5d141a21f7455bb624c96833",
-        id: "",
+      id: this.props.profileId,
       profile: [],
       goals: [],
       newGoal: {
@@ -122,7 +121,7 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-3">
             <Row>
-              <UserCard name={this.state.profile.name} />
+              <UserCard name={this.state.profile.username} />
             </Row>
             <Row>
               <Achievement />
