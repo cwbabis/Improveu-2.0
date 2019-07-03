@@ -133,8 +133,8 @@ class Landing extends Component {
     let userData = this.state.returnUser;
     console.log(userData);
     API.logIn(userData)
-              .then(res => console.log(res))
-              .catch(err => console.log(err)); 
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 
   handleRegisterSubmit = event => {
@@ -151,9 +151,10 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <Wrapper/>
-        <LandingNav/>
-      
+        <Wrapper />
+        <Row>
+          <LandingNav />
+        </Row>
         <div className="positioning leftHalf">
           <Row>
             <Jumbotron />
@@ -171,7 +172,7 @@ class Landing extends Component {
               registerEmail={this.state.newUser.email} />
           </Row>
         </div>
-        
+
         <Footer />
         <Wrapper />
       </div>
