@@ -5,9 +5,11 @@
     width: 100%;
     background-color: white;
     color: white;
-    height: 8%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 40px;
     border-top: solid #ccc 1px;
-    line-height: 3;
+    display: block;
     overflow: hidden;
 }
 
@@ -15,23 +17,23 @@ a {
     color: #aab8c2;
     padding-right: 15px;
     font-size: .85rem;
-    word-wrap: keep-all;
 }
 
 .links:hover {
     color: #244579;
     text-decoration: underline;
 }
-.noPad{
+
+/* .noPad{
     padding: 0px;
-}
+} */
 
-.col-12{
+.col-12 {
     text-align: center;
-
 }
+
 @media only screen and (max-width: 1400px) {
-    .footer{
+    .footer {
         height: 11%;
     }
-  }
+}
