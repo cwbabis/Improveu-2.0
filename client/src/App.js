@@ -34,7 +34,9 @@ class App extends Component {
           <Route exact path="/dashboard" render={(routeProps) => (
             <Dashboard {...routeProps} {...this.state} update={this.update} />
           )} />
-          <Route exact path="/comment" Component={Comment} />
+          <Route exact path="/comment" render={(routeProps) => (
+            <Comment {...routeProps} {...this.state} update={this.update} />
+          )} />
           {/*   <Footer /> */}
         </div>
       </Router>
