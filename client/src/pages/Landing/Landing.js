@@ -25,8 +25,7 @@ class Landing extends Component {
         username: "",
         password: "",
         email: ""
-      },
-      profileId: this.props.profileId
+      }
     };
 
     this.handleSignInSubmit = this.handleSignInSubmit.bind(this)
@@ -53,8 +52,6 @@ class Landing extends Component {
       ),
       () => {
         console.log(this.state.returnUser)
-        this.props.update("test")
-        console.log(this.state.profileId);
       }
     );
   };
@@ -134,8 +131,13 @@ class Landing extends Component {
     event.preventDefault();
     let userData = this.state.returnUser;
     console.log(userData);
+    this.props.update(userData.username)
+    
     API.logIn(userData)
-      .then(res => console.log(res))
+      .then((res) => {
+        console.log(res);
+        this.props.history.push('/dashboard');
+      })
       .catch(err => console.log(err));
   };
 
@@ -143,9 +145,14 @@ class Landing extends Component {
     event.preventDefault();
     let userData = this.state.newUser;
     console.log(userData);
+    this.props.update(userData.username);
     API.createNewUser(userData)
-      .then(res => console.log(res))
+    .then((res) => {
+      console.log(res);
+      this.props.history.push('/dashboard');
+    })
       .catch(err => console.log(err));
+
   };
 
 
