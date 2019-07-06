@@ -6,8 +6,8 @@ function UserCard(props) {
         <div className="col-md-12">
             <div className="card">
                 <div class="alignImg">
-                    <a href="#" ><img href=""
-                        class="dashProPic" src="https://via.placeholder.com/100" alt="placeholder"></img></a>
+                    <a href="#" ><img
+                        class="dashProPic" src={props.image} alt="profile image"></img></a>
                 </div>
                 <div>
                     <a href="#" ><p class="dashProUsername">{props.name}</p></a>

@@ -15,7 +15,10 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       id: this.props.profileId,
-      profile: [],
+      profile: {
+        username: "",
+        image: ""
+      },
       goals: [],
       newGoal: {
         goal: "",
@@ -30,16 +33,24 @@ class Dashboard extends Component {
     this.handleBuddySubmit = this.handleBuddySubmit.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getProfile();
+  };
+
+  componentDidMount() {  
     this.getGoals()
-  }
+  };
+
+
 
   getProfile = () => {
     API.getProfile(this.state.id)
       .then(res => {
         this.setState({
-          profile: res.data
+          profile: {
+             username: res.data[0].username,
+             image: res.data[0].image
+          }
         })
         console.log(this.state)
       }
@@ -121,7 +132,8 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-3">
             <Row>
-              <UserCard name={this.state.profile.username} />
+              <UserCard name={this.state.profile.username ? this.state.profile.username : "Please Sign In or Register"}
+              image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"} />
             </Row>
             <Row>
               <Achievement />

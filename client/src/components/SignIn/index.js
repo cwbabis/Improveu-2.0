@@ -33,7 +33,7 @@ function SignIn(props) {
                                         <input type="text" onChange={props.handleRegisterNameChange} value={props.registerName} className="form-control" id="username" />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="email">Email address</label>
+                                        <label htmlFor="email">Image Link</label>
                                         <input type="email" onChange={props.handleRegisterEmailChange} value={props.registerEmail} className="form-control" id="email" />
                                     </div>
                                     <div className="form-group">
