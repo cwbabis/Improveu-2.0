@@ -9,7 +9,7 @@ var UserSchema = mongoose.Schema({
   password: {
     type: String
   },
-  email: {
+  image: {
     type: String
   },
   name: {
