@@ -10,13 +10,12 @@ function ProfileCard(props) {
                         className="dashProPic" src="https://via.placeholder.com/150" alt="placeholder"></img></a>
                 </div>
                 <div>
-                    <a href="#" ><p class="dashProUsername">{props.name}</p></a>
+                    <a href="#" ><p className="dashProUsername">{props.name}</p></a>
                 </div>
-                <div className="card-footer">
-                    <div class="">
-                        <a href="#"><p style={{ margin: 0, fontSize: 14 }} >Buddies<span class="hightlight float-right">#</span></p></a>
+                    <div className="buddy">
+                        <a href="#"><p>Buddies<span class="hightlight float-right">#</span></p></a>
                     </div>
-                </div>
+                
             </div>
         </div>
     );
