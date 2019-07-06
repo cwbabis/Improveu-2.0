@@ -17,3 +17,6 @@ btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #244579;
     opacity: .8;
 }
+.wrap{
+    min-width: 200px;
+}

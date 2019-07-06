@@ -49,6 +49,7 @@ h1 {
     background-color: #244579;
     text-align: center;
     justify-content: center;
+    width: 100%;
 }
 
 .navbar .navbar-brand {

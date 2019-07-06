@@ -10,7 +10,7 @@ function LandingNav() {
                 <p id="local-name"></p>
             </div> */}
                 <div className="nav-title">
-                    <h1 >Improveu</h1>
+                    <h1 className="navTitle">Improveu</h1>
                 </div>
          
             </div>{/* 
