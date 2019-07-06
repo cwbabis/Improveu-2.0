@@ -136,7 +136,7 @@ class Landing extends Component {
     API.logIn(userData)
       .then((res) => {
         console.log(res);
-        console.log(this.props.profileId); 
+        this.props.history.push('/dashboard');
       })
       .catch(err => console.log(err));
   };
@@ -145,9 +145,14 @@ class Landing extends Component {
     event.preventDefault();
     let userData = this.state.newUser;
     console.log(userData);
+    this.props.update(userData.username);
     API.createNewUser(userData)
-      .then(res => console.log(res))
+    .then((res) => {
+      console.log(res);
+      this.props.history.push('/dashboard');
+    })
       .catch(err => console.log(err));
+
   };
 
 

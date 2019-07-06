@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileId: "5d1c0535d9496dcf1447a8f3"
+      profileId: ""
     }
     this.update = this.update.bind(this);
   }
