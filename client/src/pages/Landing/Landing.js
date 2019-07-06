@@ -40,7 +40,7 @@ class Landing extends Component {
 
 
   handleSignInNameChange(e) {
-    console.log("Inside name form");
+
     let name = e.target.value;
     this.setState(
       prevState => ({
@@ -131,18 +131,28 @@ class Landing extends Component {
     event.preventDefault();
     let userData = this.state.returnUser;
     console.log(userData);
-    /*         API.createNewUser(userData)
-              .then(res => console.log(res))
-              .catch(err => console.log(err)); */
+    this.props.update(userData.username)
+    
+    API.logIn(userData)
+      .then((res) => {
+        console.log(res);
+        this.props.history.push('/dashboard');
+      })
+      .catch(err => console.log(err));
   };
 
   handleRegisterSubmit = event => {
     event.preventDefault();
     let userData = this.state.newUser;
     console.log(userData);
+    this.props.update(userData.username);
     API.createNewUser(userData)
-      .then(res => console.log(res))
+    .then((res) => {
+      console.log(res);
+      this.props.history.push('/dashboard');
+    })
       .catch(err => console.log(err));
+
   };
 
 
@@ -150,9 +160,10 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <Wrapper/>
-        <LandingNav/>
-      
+        <Wrapper />
+        <Row>
+          <LandingNav />
+        </Row>
         <div className="positioning leftHalf">
           <Row>
             <Jumbotron />
@@ -170,7 +181,7 @@ class Landing extends Component {
               registerEmail={this.state.newUser.email} />
           </Row>
         </div>
-        
+
         <Footer />
         <Wrapper />
       </div>

@@ -1,6 +1,5 @@
 .title{
     top: 20%;
-    left: 41%;
     position: absolute;
 }
 .navbar .navbar-nav {
@@ -10,7 +9,6 @@
 }
 .navbar-default{
     padding: 0px;
-    margin-top: 20px;
 }
 .navbar .navbar-collapse {
     text-align: center;
@@ -18,6 +16,9 @@
 
 .nav-title {
     color: white;
+}
+.navTitle{
+    padding-top: 20px;
 }
 
 h1 {
@@ -56,8 +57,7 @@ h1 {
 
 .navbar {
     background-color: #244579;
-    width: 50%;
-    
+    width: 100%;
 }
 
 .navbar .navbar-brand {
