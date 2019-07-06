@@ -24,7 +24,7 @@ class Landing extends Component {
       newUser: {
         username: "",
         password: "",
-        email: ""
+        image: ""
       }
     };
 
@@ -114,7 +114,7 @@ class Landing extends Component {
       prevState => ({
         newUser: {
           ...prevState.newUser,
-          email: address
+          image: address
         }
       }
       ),
