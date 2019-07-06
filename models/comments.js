@@ -6,6 +6,10 @@ const Schema = mongoose.Schema;
 const CommentsSchema = new Schema({
   author: String,
   text: String,
+  creatorID: {
+    type: Schema.Types.ObjectId,
+    ref: "Goal"
+}
 }, { timestamps: true });
 
 // export our module to use in server.js
