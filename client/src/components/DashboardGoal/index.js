@@ -24,9 +24,9 @@ function GoalCard(props) {
     return (
         <div className="col-md-12">
             <div className="card">
-                <div className="card-header text-muted">
-                    {props.title}
-                    <div className="float-right text-muted">
+                <div href="" className="card-header">
+{props.title}
+                    <div href="#" className="float-right text-muted">
                         {props.partner}
                     </div>
 
@@ -36,7 +36,7 @@ function GoalCard(props) {
                 </div>
                 <div>
                     <div>
-                        <a href="#"><img class="goalcardpropic " src="https://via.placeholder.com/60" alt="placeholder"></img></a>
+                        <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder"></img></a>
                         <div>
                             <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
                             <time className="float-left timeago" dateTime="">
