@@ -136,6 +136,12 @@ class Dashboard extends Component {
         this.getGoals()
       })
       .catch(console.log("something went wrong. Please try again later"))
+  };
+
+  handleProfileClick = event => {
+    event.preventDefault();
+    this.props.history.push('/profile');
+
   }
 
 
@@ -148,7 +154,8 @@ class Dashboard extends Component {
           <Col size="md-3">
             <Row>
               <UserCard name={this.state.profile.username ? this.state.profile.username : "Please Sign In or Register"}
-                image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"} />
+                image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"}
+                handleProfileClick={this.handleProfileClick} />
             </Row>
             <Row>
               <Achievement />

@@ -10,7 +10,7 @@ function UserCard(props) {
                         class="dashProPic" src={props.image} alt="profile image"></img></a>
                 </div>
                 <div>
-                    <a href="#" ><p class="dashProUsername">{props.name}</p></a>
+                    <a href="#" onClick={props.handleProfileClick}><p class="dashProUsername">{props.name}</p></a>
                 </div>
                 <div className="card-footer">
                     <div class="">
