@@ -55,7 +55,7 @@ module.exports = {
   },
   updateGoal: function (req, res) {
           db.Goal
-          .findOneAndUpdate({ _id: req.params.id }, req.body)
+          .findByIdAndUpdate(req.params.id, {partnerID: req.body.partnerID})
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err)); 
   },
