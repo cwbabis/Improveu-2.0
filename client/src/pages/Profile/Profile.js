@@ -26,25 +26,30 @@ class Profile extends Component {
     }
 
     getProfile = () => {
+        if(this.state.id) {
         API.getProfile(this.state.id)
-            .then(res => {
-                this.setState({
-                    profile: {
-                        id: res.data[0]._id,
-                        username: res.data[0].username,
-                        image: res.data[0].image
-                    }
-                })
-                console.log(this.state)
-            }
-            )
-            .catch(() =>
-                this.setState({
-                    profile: {},
-                    message: "Please sign-in"
-                })
-            );
-    };
+          .then(res => {
+            this.setState({
+              profile: {
+                id: res.data[0]._id,
+                username: res.data[0].username,
+                image: res.data[0].image
+              }
+            })
+            console.log(this.state)
+          }
+          )
+          .catch(() =>
+            this.setState({
+              profile: {},
+              message: "Please sign-in"
+            })
+          );
+        }
+        else {
+          console.log("not signed in")
+        }
+      };
 
     getGoals = () => {
         API.getAllGoals()
@@ -63,11 +68,31 @@ class Profile extends Component {
             );
     };
 
+    //Navigation clicks
+    handleProfileClick = event => {
+
+        this.props.history.push('/profile');
+
+    };
+
+    handleDashboardClick = event => {
+
+        this.props.history.push('/dashboard');
+    }
+
+    handleSignOutClick = () => {
+
+        this.props.history.push('/');
+    }
+
 
     render() {
         return (
             <div>
-                <Nav />
+                <Nav handleProfileClick={this.handleProfileClick}
+                    handleDashboardClick={this.handleDashboardClick}
+                    handleSignOutClick={this.handleSignOutClick}
+                />
                 <br></br><br></br>
                 <Row>
                     <Col size="md-4">

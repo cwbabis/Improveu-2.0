@@ -34,6 +34,7 @@ class Dashboard extends Component {
     this.handleBuddySubmit = this.handleBuddySubmit.bind(this)
   }
 
+  //Initial state mounting functions
   componentWillMount() {
     this.getProfile();
   };
@@ -42,9 +43,9 @@ class Dashboard extends Component {
     this.getGoals()
   };
 
-
-
+  //This function makes one of two initial API calls to receive profile information
   getProfile = () => {
+    if(this.state.id) {
     API.getProfile(this.state.id)
       .then(res => {
         this.setState({
@@ -63,8 +64,13 @@ class Dashboard extends Component {
           message: "Please sign-in"
         })
       );
+    }
+    else {
+      console.log("not signed in")
+    }
   };
 
+  //This function is the second initial function that gathers all goals
   getGoals = () => {
     API.getAllGoals()
       .then(res => {
@@ -82,6 +88,7 @@ class Dashboard extends Component {
       );
   };
 
+  //Handles input change in the new goal form (on change, the state is updated and that dictates the value in the form)
   handleInputChange(e) {
     console.log("Inside handleTextArea");
     let value = e.target.value;
@@ -94,19 +101,9 @@ class Dashboard extends Component {
       () => {
         console.log(this.state)
       });
-  }
-
-/*   this.setState(
-    prevState => ({
-      newGoal: {
-        ...prevState.newGoal, 
-        goal: value
-      }
-    }
-    ) */
+  };
 
   //This creates on new goal and re-loads the goals page to display all goals including the newly created one
-
   handleGoalSubmit = event => {
     event.preventDefault();
     let goalData = {
@@ -122,6 +119,7 @@ class Dashboard extends Component {
       .catch(err => console.log(err));
   };
 
+  //This handles the put route to update the partner with a buddy
   handleBuddySubmit = event => {
     event.preventDefault();
     let buddyData = { partnerID: this.state.id };
@@ -138,17 +136,31 @@ class Dashboard extends Component {
       .catch(console.log("something went wrong. Please try again later"))
   };
 
+  //Navigation clicks
   handleProfileClick = event => {
-    event.preventDefault();
+
     this.props.history.push('/profile');
 
+  };
+
+  handleDashboardClick = event => {
+
+    this.props.history.push('/dashboard');
+  }
+
+  handleSignOutClick = () => {
+
+    this.props.history.push('/');
   }
 
 
   render() {
     return (
       <div>
-        <Nav />
+        <Nav handleProfileClick={this.handleProfileClick}
+        handleDashboardClick={this.handleDashboardClick}
+        handleSignOutClick={this.handleSignOutClick}
+        />
         <br></br><br></br>
         <Row>
           <Col size="md-3">
@@ -164,7 +176,7 @@ class Dashboard extends Component {
           <Col size="md-6">
             <Row>
               <NewGoalCard
-                id={this.state.id}
+                id={this.state.profile.id}
                 handleGoalSubmit={this.handleGoalSubmit}
                 goal={this.state.newGoal.goal}
                 handleGoalInput={this.handleInputChange}
