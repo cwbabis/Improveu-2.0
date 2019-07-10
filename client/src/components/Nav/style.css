@@ -32,6 +32,7 @@ h1 {
 }
 .fa:hover{
     color: white;
+    cursor: pointer;
 
 
 }

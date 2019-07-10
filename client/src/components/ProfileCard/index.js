@@ -6,13 +6,13 @@ function ProfileCard(props) {
         <div className="col-md-12">
             <div className="card">
                 <div className="alignImg">
-                    <a href="#" ><img href=""
-                        className="dashProPic" src={props.image} alt="placeholder"></img></a>
+                    <img href=""
+                        className="dashProPic" src={props.image} alt="placeholder"></img>
                 </div>
                 <div>
-                    <a href="#" ><p class="dashProUsername">{props.name}</p></a>
+                   <p class="dashProUsername">{props.name}</p>
                 </div>
-                <div className="card-footer">
+                <div className="card-footer buddy-padding">
                     <div class="">
                         <a href="#"><p style={{ margin: 0, fontSize: 14 }} >Buddies<span class="hightlight float-right">#</span></p></a>
                     </div>

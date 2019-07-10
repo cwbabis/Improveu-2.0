@@ -27,16 +27,16 @@ function GoalCard(props) {
             <div className="card">
                 <div className="card-header text-muted">
                     {props.title}
-                    <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id}/>
+                    <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id} />
                 </div>
                 <div>
                     <div>
                         <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder"></img></a>
                         <div>
                             <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
-                            <time className="float-left timeago" dateTime="">
+{/*                             <time className="float-left timeago" dateTime="">
                                 Time
-                            </time>
+                            </time> */}
                         </div>
 
                     </div>
@@ -45,19 +45,12 @@ function GoalCard(props) {
                     <p class="goalText">{props.goal}</p>
                 </div>
 
-                {/*        <div className="card-footer text-muted">
-              
-                    <div className="float-left">
-                        Show Comments
-                    </div> 
-
-                </div> */}
                 <hr></hr>
                 <div className="card-header">
                     <div className="form-group">
                         <textarea placeholder="Write a comment..." className="form-control form-rounded" rows="1" id="comment"></textarea>
                     </div>
-{/* 
+                    {/* 
               <button className="btn btn-success btn-sm float-right comment-button">
                             Comment
                 </button> */}
