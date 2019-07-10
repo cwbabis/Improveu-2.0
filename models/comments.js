@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // create new instance of the mongoose.schema. the schema takes an
@@ -13,4 +13,6 @@ const CommentsSchema = new Schema({
 }, { timestamps: true });
 
 // export our module to use in server.js
-export default mongoose.model('Comment', CommentsSchema);
+const Comment = mongoose.model('Comment', CommentsSchema);
+
+module.exports = Comment

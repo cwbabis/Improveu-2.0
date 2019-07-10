@@ -36,7 +36,7 @@ function GoalCard(props) {
                 </div>
                 <div>
                     <div>
-                        <a href="#"><img class="goalcardpropic " src="https://via.placeholder.com/60" alt="placeholder"></img></a>
+                        <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder"></img></a>
                         <div>
                             <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
                             <time className="float-left timeago" dateTime="">

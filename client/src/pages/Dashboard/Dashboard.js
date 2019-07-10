@@ -16,6 +16,7 @@ class Dashboard extends Component {
     this.state = {
       id: this.props.profileId,
       profile: {
+        id: "",
         username: "",
         image: ""
       },
@@ -23,7 +24,7 @@ class Dashboard extends Component {
       newGoal: {
         goal: "",
         title: "New Goal",
-        creatorId: this.id,
+        creatorId: "",
         partnerId: ""
       }
     };
@@ -37,7 +38,7 @@ class Dashboard extends Component {
     this.getProfile();
   };
 
-  componentDidMount() {  
+  componentDidMount() {
     this.getGoals()
   };
 
@@ -48,8 +49,9 @@ class Dashboard extends Component {
       .then(res => {
         this.setState({
           profile: {
-             username: res.data[0].username,
-             image: res.data[0].image
+            id: res.data[0]._id,
+            username: res.data[0].username,
+            image: res.data[0].image
           }
         })
         console.log(this.state)
@@ -91,7 +93,8 @@ class Dashboard extends Component {
         }
       }
       ),
-      () => {console.log(this.state.newGoal)
+      () => {
+        console.log(this.state.newGoal)
       }
     );
   }
@@ -101,7 +104,12 @@ class Dashboard extends Component {
 
   handleGoalSubmit = event => {
     event.preventDefault();
-    let goalData = this.state.newGoal;
+    let goalData = {
+      goal: this.state.newGoal.goal,
+      creatorID: this.state.profile.id,
+      title: this.state.profile.username,
+      image: this.state.profile.image
+    };
     console.log(goalData);
     API.createNewGoal(goalData)
       .then(res => this.getGoals())
@@ -133,7 +141,7 @@ class Dashboard extends Component {
           <Col size="md-3">
             <Row>
               <UserCard name={this.state.profile.username ? this.state.profile.username : "Please Sign In or Register"}
-              image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"} />
+                image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"} />
             </Row>
             <Row>
               <Achievement />
@@ -145,6 +153,7 @@ class Dashboard extends Component {
                 handleGoalSubmit={this.handleGoalSubmit}
                 goal={this.state.newGoal.goal}
                 handleGoalInput={this.handleInputChange}
+                image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"}
               />
             </Row>
             {this.state.goals.reverse().map(goal => (
@@ -155,6 +164,7 @@ class Dashboard extends Component {
                   goal={goal.goal}
                   creator={goal.userName}
                   partner={goal.partner}
+                  image={goal.image}
                   handleBuddySubmit={this.handleBuddySubmit}
                 />
               </Row>
