@@ -27,7 +27,8 @@ hr {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid lightslategray;
+    margin: 9px;
     /* #F7F7F7 */
 }
 
@@ -64,9 +65,9 @@ time{
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid lightslategray;
     padding: 0px;
-    margin: 20px 0px 0px 10px;
+    margin: 15px 0px 0px 10px;
 }
 .comment-card-body {
     padding-top: 0px;
@@ -84,12 +85,13 @@ time{
 .commentText{
     margin: 10px 10px 10px 0px;
     width: 85%;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     background: #eff0f1;
-    border-radius: 17%;
+    border-radius: 15px;
     font-size: 14px;
     
 }
+
 /* .textarea{
     padding: 0px;
     

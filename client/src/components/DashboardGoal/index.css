@@ -31,7 +31,8 @@ hr {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid lightslategray;
+    /* margin: 10px 5px 5px 10px; */
     /* #F7F7F7 */
 }
 
@@ -85,8 +86,19 @@ time{
     padding: 20px;
     background: #eff0f1;
     border-radius: 17%;
-    font-size: 14px;
-    
+    font-size: 14px;   
+}
+.goalText{
+    padding: 5px 0px 0px 0px;
+    font-size: 12px;
+}
+.name{
+line-height: 2;
+color: #244579;
+}
+.name:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 /* .textarea{
     padding: 0px;

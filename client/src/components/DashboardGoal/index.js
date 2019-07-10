@@ -25,28 +25,31 @@ function GoalCard(props) {
     return (
         <div className="col-md-12">
             <div className="card">
-                <div href="" className="card-header">
+            
+                <div href="" className="card-header username-styling">
+                    <span className="name">
                     {props.title}
-
+</span>
                     <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id} />
 
 
                 </div>
                 <div>
                     <div>
-                        <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder"></img></a>
+                        <img class="goalcardpropic " src={props.image} alt="placeholder"></img>
                         <div>
-                            <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
-                            <time className="float-left timeago" dateTime="">
+                           
+                            {/* <time className="float-left timeago" dateTime="">
                                 Time
-                            </time>
+                            </time> */}
+                        </div>
+                        <div class="card-body">
+                            <p class="goalText">{props.goal}</p>
                         </div>
 
                     </div>
                 </div>
-                <div class="card-body">
-                    <p class="goalText">{props.goal}</p>
-                </div>
+
 
                 {/*        <div className="card-footer text-muted">
               

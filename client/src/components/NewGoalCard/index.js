@@ -4,7 +4,7 @@ import "./index.css";
 var observe;
 if (window.attachEvent) {
     observe = function (element, event, handler) {
-        element.attachEvent('on'+event, handler);
+        element.attachEvent('on' + event, handler);
     };
 }
 else {
@@ -12,20 +12,20 @@ else {
         element.addEventListener(event, handler, false);
     };
 }
-function init () {
+function init() {
     var text = document.getElementById('text');
-    function resize () {
+    function resize() {
         text.style.height = 'auto';
-        text.style.height = text.scrollHeight+'px';
+        text.style.height = text.scrollHeight + 'px';
     }
     /* 0-timeout to get the already changed text */
-    function delayedResize () {
+    function delayedResize() {
         window.setTimeout(resize, 0);
     }
-    observe(text, 'change',  resize);
-    observe(text, 'cut',     delayedResize);
-    observe(text, 'paste',   delayedResize);
-    observe(text, 'drop',    delayedResize);
+    observe(text, 'change', resize);
+    observe(text, 'cut', delayedResize);
+    observe(text, 'paste', delayedResize);
+    observe(text, 'drop', delayedResize);
     observe(text, 'keydown', delayedResize);
 
     text.focus();
@@ -36,31 +36,37 @@ function init () {
 
 function NewGoalCard(props) {
     if (props.id) {
-    return (
-        <div className="col-md-12">
-            <div className="card">
-                <div className="card-header text-muted">
-                    Create Goal
+        return (
+            <div className="col-md-12">
+                <div className="card">
+                    <div className="card-header text-muted">
+                        Create Goal
                 </div>
-                <div>
                     <div>
-                        <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder" ></img></a>
-                        <textarea placeholder="Post a Goal." value={props.goal} onChange={props.handleGoalInput}></textarea>
-                        
+                        <div>
+                            <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder" ></img></a>
+                            <textarea placeholder="Post a Goal." value={props.goal} onChange={props.handleGoalInput}></textarea>
+
+                        </div>
+                    </div>
+                    <div className="card-footer text-muted">
+                        <button className="btn btn-primary btn-block btn-sm disabled" onClick={props.handleGoalSubmit}>
+                            Share Goal
+                </button>
                     </div>
                 </div>
-                <div className="card-footer text-muted">
-                    <button className="btn btn-primary btn-block btn-sm disabled"  onClick={props.handleGoalSubmit}> 
-                        Share Goal
-                </button>
-                </div>
-            </div>
-        </div >
-    )
+            </div >
+        )
     }
     else {
         return (
-            <div style={{margin: "auto", paddingBottom: "10px"}}>Please Sign In to Create a Goal</div>
+            <div>
+            <div className="col-12 alert-danger">
+                <div>Please Sign In to Create a Goal</div>
+                
+            </div>
+            <br></br>
+        </div>
         )
     }
 }
