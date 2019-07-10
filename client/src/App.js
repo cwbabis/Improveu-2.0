@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
+import Comment from "./pages/Comments";
 /* import Footer from "./components/Footer"; */
 
 class App extends Component {
@@ -32,6 +33,9 @@ class App extends Component {
           )} />
           <Route exact path="/dashboard" render={(routeProps) => (
             <Dashboard {...routeProps} {...this.state} update={this.update} />
+          )} />
+          <Route exact path="/comment" render={(routeProps) => (
+            <Comment {...routeProps} {...this.state} update={this.update} />
           )} />
           {/*   <Footer /> */}
         </div>
