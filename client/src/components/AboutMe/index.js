@@ -8,12 +8,12 @@ function AboutMe(props) {
                 <div className="card-header">
                     About Me
                 </div>
-                <div className="card-body">
-                    <p className="bioText">This shows any potential buddies what your interests are. </p>
-
-                    <p className="bioText">It looks like you don't have anything here yet.</p>
-                    
-                    <p className="bioText">This functionality is not currently working.</p>                    
+                <div className="card-body about-me">
+                    <p className="bioText">Hi! I'm looking for some buddies to help me achieve my goals. My interests include Hiking, Running, and going on long walks with my pup. I'm also trying to learn an instrument and wish I could play a song.</p>
+                    <br></br>
+                    <p className="bioText">My favorite type of music is Indie Rock. I would maybe like to learn how to play Weezer. That way I can play Weezer while I'm camping.</p>
+                    <br></br>
+                    <p className="bioText">Some goal ideas I have in mind are to meet a buddy who can encourage me to learn to play an instrument, encourage me to go on more hikes, and run more consistently.</p>                    
     
                 </div>
 
