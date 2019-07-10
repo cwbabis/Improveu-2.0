@@ -9,10 +9,7 @@ const goalSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    partnerID: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    },
+    partnerID: String,
 });
 
 const Goal = mongoose.model("Goal", goalSchema);

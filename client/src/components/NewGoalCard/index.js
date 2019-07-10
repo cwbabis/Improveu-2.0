@@ -35,6 +35,7 @@ function init () {
 
 
 function NewGoalCard(props) {
+    if (props.id) {
     return (
         <div className="col-md-12">
             <div className="card">
@@ -55,7 +56,13 @@ function NewGoalCard(props) {
                 </div>
             </div>
         </div >
-    );
+    )
+    }
+    else {
+        return (
+            <div style={{margin: "auto", paddingBottom: "10px"}}>Please Sign In to Create a Goal</div>
+        )
+    }
 }
 
 

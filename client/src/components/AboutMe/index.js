@@ -9,11 +9,11 @@ function AboutMe(props) {
                     About Me
                 </div>
                 <div className="card-body">
-                    <p className="bioText">Deserunt esse nisi velit tempor eiusmod. Dolore incididunt eiusmod dolore eu sint culpa ea esse fugiat nulla eu dolor. Lorem elit reprehenderit Lorem nostrud magna ullamco excepteur dolore esse pariatur eu velit. Commodo nostrud in irure magna qui ut proident enim laboris adipisicing enim nisi exercitation. Aliquip elit sunt sit ea tempor nisi Lorem.</p>
+                    <p className="bioText">This shows any potential buddies what your interests are. </p>
 
-                    <p className="bioText">Deserunt esse nisi velit tempor eiusmod. Dolore incididunt eiusmod dolore eu sint culpa ea esse fugiat nulla eu dolor. Lorem elit reprehenderit Lorem nostrud magna ullamco excepteur dolore esse pariatur eu velit. Commodo nostrud in irure magna qui ut proident enim laboris adipisicing enim nisi exercitation. Aliquip elit sunt sit ea tempor nisi Lorem.</p>
+                    <p className="bioText">It looks like you don't have anything here yet.</p>
                     
-                    <p className="bioText">Deserunt esse nisi velit tempor eiusmod. Dolore incididunt eiusmod dolore eu sint culpa ea esse fugiat nulla eu dolor. Lorem elit reprehenderit Lorem nostrud magna ullamco excepteur dolore esse pariatur eu velit. Commodo nostrud in irure magna qui ut proident enim laboris adipisicing enim nisi exercitation. Aliquip elit sunt sit ea tempor nisi Lorem.</p>                    
+                    <p className="bioText">This functionality is not currently working.</p>                    
     
                 </div>
 

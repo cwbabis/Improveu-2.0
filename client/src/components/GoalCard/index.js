@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../BuddyButton"
 import "./index.css";
 
 /* const buddyStyle{
@@ -26,13 +27,7 @@ function GoalCard(props) {
             <div className="card">
                 <div className="card-header text-muted">
                     {props.title}
-                    <div className="float-right text-muted">
-                        {props.partner}
-                    </div>
-
-                    <button style={{ marginLeft: 10, marginRight: 10 }} className="btn btn-success btn-sm float-right buddy-button"  id={props.id} onClick={props.handleBuddySubmit}>
-                        Buddy Up
-                    </button>
+                    <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id}/>
                 </div>
                 <div>
                     <div>
@@ -58,14 +53,14 @@ function GoalCard(props) {
 
                 </div> */}
                 <hr></hr>
-                <div className="card-header">
+{/*                 <div className="card-header">
                     <div className="form-group">
                         <textarea placeholder="Write a comment..." className="form-control form-rounded" rows="1" id="comment"></textarea>
                     </div>
-{/* 
+ 
               <button className="btn btn-success btn-sm float-right comment-button">
                             Comment
-                </button> */}
+                </button> 
                 </div>
                 <div className="comment-card-body">
                     <a href="#"><img class="commenterProPic" src="https://via.placeholder.com/45" alt="placeholder"></img></a>
@@ -81,7 +76,7 @@ function GoalCard(props) {
                         <a href="#" ><p class="dashProUsername">{props.name}</p>Username Placeholder</a> div where comments append to. blah blah blah filler blah
                         border raidius is messed up depending on size of comment. need to use different css property
                     </div>
-                </div>
+                </div> */}
             </div>
         </div >
     );

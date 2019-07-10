@@ -9,34 +9,47 @@ import AboutMe from "../../components/AboutMe";
 import API from "../../utils/API";
 
 class Profile extends Component {
-
-    state = {
-        id: this.props.profileId,
-        profile: {},
-        goals: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: this.props.profileId,
+            profile: {},
+            goals: []
+        };
     };
 
-    componentDidMount() {
+    componentWillMount() {
         this.getProfile();
+    }
+    componentDidMount() {
         this.getGoals();
     }
 
     getProfile = () => {
+        if(this.state.id) {
         API.getProfile(this.state.id)
-            .then(res => {
-                console.log(res.data)
-                this.setState({
-                    profile: res.data
-                })
-            }
-            )
-            .catch(() =>
-                this.setState({
-                    profile: {},
-                    message: "Please sign-in"
-                })
-            );
-    };
+          .then(res => {
+            this.setState({
+              profile: {
+                id: res.data[0]._id,
+                username: res.data[0].username,
+                image: res.data[0].image
+              }
+            })
+            console.log(this.state)
+          }
+          )
+          .catch(() =>
+            this.setState({
+              profile: {},
+              message: "Please sign-in"
+            })
+          );
+        }
+        else {
+          console.log("not signed in")
+        }
+      };
 
     getGoals = () => {
         API.getAllGoals()
@@ -55,16 +68,37 @@ class Profile extends Component {
             );
     };
 
+    //Navigation clicks
+    handleProfileClick = event => {
+
+        this.props.history.push('/profile');
+
+    };
+
+    handleDashboardClick = event => {
+
+        this.props.history.push('/dashboard');
+    }
+
+    handleSignOutClick = () => {
+
+        this.props.history.push('/');
+    }
+
 
     render() {
         return (
             <div>
-                <Nav />
+                <Nav handleProfileClick={this.handleProfileClick}
+                    handleDashboardClick={this.handleDashboardClick}
+                    handleSignOutClick={this.handleSignOutClick}
+                />
                 <br></br><br></br>
                 <Row>
                     <Col size="md-4">
                         <Row>
-                            <ProfileCard name={this.state.profile.username} />
+                            <ProfileCard name={this.state.profile.username ? this.state.profile.username : "Please Sign In or Register"}
+                                image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"} />
                         </Row>
                         <Row>
                             <Achievement />
@@ -79,18 +113,19 @@ class Profile extends Component {
                 <br></br><br></br><br></br>
                 <Row>
                     <Row>
-                        <h1 className="text-center">My Goals</h1>
+                        <h1 className="text-center">Goals</h1>
                     </Row>
                     <Col size="md-12">
                         {this.state.goals.reverse().map(goal => (
-                                <GoalCard
-                                    id={goal._id}
-                                    title={goal.title}
-                                    goal={goal.goal}
-                                    creator={goal.userName}
-                                    partner={goal.partner}
-                                    handleBuddySubmit={this.handleBuddySubmit}
-                                />
+                            <GoalCard
+                                id={goal._id}
+                                title={goal.title}
+                                goal={goal.goal}
+                                creator={goal.userName}
+                                partner={goal.partnerID}
+                                image={goal.image ? goal.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"}
+                                handleBuddySubmit={this.handleBuddySubmit}
+                            />
                         ))}
                     </Col>
 
