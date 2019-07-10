@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Nav() {
+function Nav(props) {
     return (
         <nav className="navbar navbar-default">
             <div className="container">
@@ -13,14 +13,14 @@ function Nav() {
                     <h1>Improveu</h1>
                 </div>
                 <ul className="nav navbar-nav">
-                    <li className="nav-item nav-link">
-                        <i className="fa fa-home nav-link"><a className="nav-link" href="#">Home</a></i>
+                    <li className="nav-item nav-link" onClick={props.handleDashboardClick}>
+                        <i className="fa fa-home nav-link"><a className="nav-link">Home</a></i>
                     </li>
-                    <li className="nav-item nav-link">
-                        <i className="fa fa-user nav-link"><a className="nav-link" href="#">Profile</a></i>
+                    <li className="nav-item nav-link" onClick={props.handleProfileClick}>
+                        <i className="fa fa-user nav-link"><a className="nav-link" >Profile</a></i>
                     </li>
-                    <li className="nav-item nav-link">
-                        <i className="fa fa-arrow-right nav-link"><a className=" nav-link" href="#">Sign out</a></i>
+                    <li className="nav-item nav-link" onClick={props.handleSignOutClick}>
+                        <i className="fa fa-arrow-right nav-link"><a className=" nav-link" >Sign out</a></i>
                     </li>
                 </ul>
             </div>{/* 

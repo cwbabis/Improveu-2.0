@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../BuddyButton"
 import "./index.css";
 
 /* const buddyStyle{
@@ -25,14 +26,11 @@ function GoalCard(props) {
         <div className="col-md-12">
             <div className="card">
                 <div href="" className="card-header">
-{props.title}
-                    <div href="#" className="float-right text-muted">
-                        {props.partner}
-                    </div>
+                    {props.title}
 
-                    <button style={{ marginLeft: 10, marginRight: 10 }} className="btn btn-success btn-sm float-right buddy-button"  id={props.id} onClick={props.handleBuddySubmit}>
-                        Buddy Up
-                    </button>
+                    <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id}/>
+
+
                 </div>
                 <div>
                     <div>
@@ -62,7 +60,7 @@ function GoalCard(props) {
                     <div className="form-group">
                         <textarea placeholder="Write a comment..." className="form-control form-rounded" rows="1" id="comment"></textarea>
                     </div>
-{/* 
+                    {/* 
               <button className="btn btn-success btn-sm float-right comment-button">
                             Comment
                 </button> */}

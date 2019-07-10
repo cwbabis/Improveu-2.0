@@ -7,7 +7,7 @@ function ProfileCard(props) {
             <div className="card">
                 <div className="alignImg">
                     <a href="#" ><img href=""
-                        className="dashProPic" src="https://via.placeholder.com/150" alt="placeholder"></img></a>
+                        className="dashProPic" src={props.image} alt="placeholder"></img></a>
                 </div>
                 <div>
                     <a href="#" ><p class="dashProUsername">{props.name}</p></a>

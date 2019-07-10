@@ -136,6 +136,7 @@ class Landing extends Component {
     API.logIn(userData)
       .then((res) => {
         console.log(res);
+
         this.props.history.push('/dashboard');
       })
       .catch(err => console.log(err));
