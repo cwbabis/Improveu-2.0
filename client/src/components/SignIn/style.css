@@ -9,14 +9,24 @@
     padding-right: 30px;
     padding-left: 30px;
 }
-btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
     background-color: #244579;
     opacity: 1;
 }
-.btn-primary{
+.btn-info{
     background-color: #244579;
     opacity: .8;
 }
 .wrap{
     min-width: 200px;
+}
+.font-style{
+    font-size: 14px;
+    font-weight: bold;
+    color: lightgray;
+    line-height: 1;
+    padding-top: 8px;
+}
+.button-text{
+    font-weight: bold;
 }

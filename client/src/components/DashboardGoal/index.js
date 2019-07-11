@@ -7,29 +7,15 @@ import "./index.css";
 }; */
 
 
-//function to enter a comment with enter key instead of the "comment button"
-function validateComment() {
-    if (document.getElementById('comment').value == '') {
-        alert('Please fill in the field');
-        return false;
-    } else {
-        return true;
-    }
-}
-document.body.onkeydown = function (e) {
-    if (e.keyCode == 13)
-        validateComment();
-};
-
 function GoalCard(props) {
     return (
         <div className="col-md-12">
             <div className="card">
-            
+
                 <div href="" className="card-header username-styling">
-                    <span className="name">
-                    {props.title}
-</span>
+                    <span className="name float-left">
+                        {props.title}
+                    </span>
                     <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id} />
 
 
@@ -38,7 +24,7 @@ function GoalCard(props) {
                     <div>
                         <img class="goalcardpropic " src={props.image} alt="placeholder"></img>
                         <div>
-                           
+
                             {/* <time className="float-left timeago" dateTime="">
                                 Time
                             </time> */}
@@ -59,7 +45,7 @@ function GoalCard(props) {
 
                 </div> */}
                 <hr></hr>
-{/*                 <div className="card-header">
+                {/*                 <div className="card-header">
                     <div className="form-group">
                         <textarea placeholder="Write a comment..." className="form-control form-rounded" rows="1" id="comment"></textarea>
                     </div>

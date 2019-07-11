@@ -8,33 +8,24 @@ import "./index.css";
 
 
 //function to enter a comment with enter key instead of the "comment button"
-function validateComment() {
-    if (document.getElementById('comment').value == '') {
-        alert('Please fill in the field');
-        return false;
-    } else {
-        return true;
-    }
-}
-document.body.onkeydown = function (e) {
-    if (e.keyCode == 13)
-        validateComment();
-};
+
 
 function GoalCard(props) {
     return (
         <div className="col-md-6">
             <div className="card">
-                <div className="card-header text-muted">
+            <div href="" className="card-header username-styling">
+                    <span className="name float-left">
                     {props.title}
+                    </span>
                     <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id} />
                 </div>
                 <div>
                     <div>
                         <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder"></img></a>
                         <div>
-                            <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
-{/*                             <time className="float-left timeago" dateTime="">
+                            <a href="#" ><p class="goalCardUsername name">{props.creator}</p></a>
+                            {/*                             <time className="float-left timeago" dateTime="">
                                 Time
                             </time> */}
                         </div>
@@ -46,7 +37,7 @@ function GoalCard(props) {
                 </div>
 
                 <hr></hr>
-{/*                 <div className="card-header">
+                {/*                 <div className="card-header">
                     <div className="form-group">
                         <textarea placeholder="Write a comment..." className="form-control form-rounded" rows="1" id="comment"></textarea>
                     </div>

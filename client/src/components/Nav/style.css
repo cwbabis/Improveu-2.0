@@ -36,8 +36,13 @@ h1 {
 
 
 }
+.spacing{
+    min-width: 80px;
+}
 .nav-link{
     color: #d6d6d6;
+    font-weight: 550;
+    font-family: sans-serif;
     
 }
 .nav-link:hover{

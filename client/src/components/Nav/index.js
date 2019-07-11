@@ -13,13 +13,13 @@ function Nav(props) {
                     <h1>Improveu</h1>
                 </div>
                 <ul className="nav navbar-nav">
-                    <li className="nav-item nav-link" onClick={props.handleDashboardClick}>
+                    <li className="nav-item nav-link spacing" onClick={props.handleDashboardClick}>
                         <i className="fa fa-home nav-link"><a className="nav-link">Home</a></i>
                     </li>
-                    <li className="nav-item nav-link" onClick={props.handleProfileClick}>
+                    <li className="nav-item nav-link spacing" onClick={props.handleProfileClick}>
                         <i className="fa fa-user nav-link"><a className="nav-link" >Profile</a></i>
                     </li>
-                    <li className="nav-item nav-link" onClick={props.handleSignOutClick}>
+                    <li className="nav-item nav-link spacing" onClick={props.handleSignOutClick}>
                         <i className="fa fa-arrow-right nav-link"><a className=" nav-link" >Sign out</a></i>
                     </li>
                 </ul>
