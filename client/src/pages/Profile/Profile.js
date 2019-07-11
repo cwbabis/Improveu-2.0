@@ -118,7 +118,7 @@ class Profile extends Component {
                 <Row>
                     <Row>
                         <div className="container">
-                            <div className="container alert alert-info">
+                            <div className="container alert alert-dark">
                                 <h1 className="text-center">My Current Goals</h1>
                             </div>
                         </div>

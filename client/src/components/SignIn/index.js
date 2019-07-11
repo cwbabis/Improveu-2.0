@@ -12,31 +12,31 @@ function SignIn(props) {
                         <div className="tab-content card nopadding">
                             <div id="signin" className="tab-pane fade-in active">
                                 <form method='post' action="signin">
-                                    <div className="form-group mt-3" >
+                                    <div className="form-group mt-3 font-style text-muted" >
                                         <label htmlFor="UserName">Username</label>
                                         <input type="text" onChange={props.handleSignInNameChange} value={props.signInName} className="form-control" id="username" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="form-group font-style text-muted">
                                         <label htmlFor="pwd">Password</label>
                                         <input type="password" onChange={props.handleSignInPassChange} value={props.signInPass} className="form-control" id="password"  />
                                     </div>
                                     <br/>
-                                    <button type="submit" className="btn btn-success btn-block" onClick={props.handleSignInSubmit}>Submit</button>
+                                    <button type="submit" className="button-text btn btn-success btn-block" onClick={props.handleSignInSubmit}>Submit</button>
 {/*                                     <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
                                 </form>
                                 <br />
                             </div>
                             <div id="menu1" className="tab-pane fade">
                                 <form method='post' action="signup">
-                                    <div className="form-group mt-3">
+                                    <div className="form-group mt-3 font-style text-muted">
                                         <label htmlFor="UserName">Username</label>
                                         <input type="text" onChange={props.handleRegisterNameChange} value={props.registerName} className="form-control" id="username" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="form-group font-style text-muted">
                                         <label htmlFor="email">Image Link</label>
                                         <input type="email" onChange={props.handleRegisterEmailChange} value={props.registerEmail} className="form-control" id="email" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="form-group font-style text-muted">
                                         <label htmlFor="pwd">Password</label>
                                         <input type="password" onChange={props.handleRegisterPassChange} value={props.registerPass} className="form-control" id="password" />
                                     </div>
@@ -44,8 +44,8 @@ function SignIn(props) {
                                         <label htmlFor="pwd">Confirm Password</label>
                                         <input type="password" className="form-control" id="password" />
                                     </div> */}
-                                    <p>Minimum length is 8 characters</p>
-                                    <button type="submit" onClick={props.handleRegisterSubmit} className="mt-3 btn btn-info btn-block">Register</button>
+                                    <p className="font-style text-muted">Minimum length is 8 characters</p>
+                                    <button className="button-text" type="submit" onClick={props.handleRegisterSubmit} className="mt-3 btn btn-info button-text btn-block">Register</button>
                                    {/*  <button type="submit" className=" pull-right btn-link"><a href="www.google.com">Forget password</a></button> */}
                                 </form>
                                 <br />

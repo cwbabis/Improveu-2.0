@@ -39,7 +39,7 @@ function NewGoalCard(props) {
         return (
             <div className="col-md-12">
                 <div className="card">
-                    <div className="card-header text-muted create-goal-text">
+                    <div className="card-header create-goal-text">
                         Create Goal
                 </div>
                     <div>
@@ -50,7 +50,7 @@ function NewGoalCard(props) {
                         </div>
                     </div>
                     <div className="card-footer text-muted">
-                        <button className="btn btn-primary btn-block btn-sm" onClick={props.handleGoalSubmit}>
+                        <button className="btn btn-info btn-block btn-sm" onClick={props.handleGoalSubmit}>
                             Share Goal
                 </button>
                     </div>

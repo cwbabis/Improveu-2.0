@@ -1,14 +1,15 @@
 import React from "react";
 import unlocked from "../../images/Unlocked+Achievement.png";
 import locked from "../../images/Locked+Achievement.png";
+import "./index.css";
 
 const isLocked = true;
 
 function Achievement(props) {
     return (
         <div className="col-md-12" style={{height: '100%'}}>
-            <div className="card">
-                <div className="card-header center">
+            <div className="card achievement-card">
+                <div className="card-header text-achievement name">
                    Achievements
                 </div>
                 <div>
@@ -17,10 +18,6 @@ function Achievement(props) {
                     <img src={isLocked? locked: unlocked} alt="award image"></img>
                     <img src={isLocked? locked: unlocked} alt="award image"></img>
 
-                </div>
-                <hr></hr>
-                <div className="card-footer text-muted">
-                   
                 </div>
             </div>
         </div>

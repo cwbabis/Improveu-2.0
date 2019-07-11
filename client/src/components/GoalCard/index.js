@@ -14,15 +14,17 @@ function GoalCard(props) {
     return (
         <div className="col-md-6">
             <div className="card">
-                <div className="card-header text-muted">
+            <div href="" className="card-header username-styling">
+                    <span className="name float-left">
                     {props.title}
+                    </span>
                     <Button partner={props.partner} handleBuddySubmit={props.handleBuddySubmit} id={props.id} />
                 </div>
                 <div>
                     <div>
                         <a href="#"><img class="goalcardpropic " src={props.image} alt="placeholder"></img></a>
                         <div>
-                            <a href="#" ><p class="goalCardUsername">{props.creator}</p></a>
+                            <a href="#" ><p class="goalCardUsername name">{props.creator}</p></a>
                             {/*                             <time className="float-left timeago" dateTime="">
                                 Time
                             </time> */}
