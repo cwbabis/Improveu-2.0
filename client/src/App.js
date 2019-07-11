@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import Comment from "./pages/Comments";
+
 /* import Footer from "./components/Footer"; */
 
 class App extends Component {

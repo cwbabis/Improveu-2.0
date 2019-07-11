@@ -39,7 +39,7 @@ function NewGoalCard(props) {
         return (
             <div className="col-md-12">
                 <div className="card">
-                    <div className="card-header text-muted">
+                    <div className="card-header text-muted create-goal-text">
                         Create Goal
                 </div>
                     <div>
@@ -50,7 +50,7 @@ function NewGoalCard(props) {
                         </div>
                     </div>
                     <div className="card-footer text-muted">
-                        <button className="btn btn-primary btn-block btn-sm disabled" onClick={props.handleGoalSubmit}>
+                        <button className="btn btn-primary btn-block btn-sm" onClick={props.handleGoalSubmit}>
                             Share Goal
                 </button>
                     </div>
@@ -60,9 +60,9 @@ function NewGoalCard(props) {
     }
     else {
         return (
-            <div>
-            <div className="col-12 alert-danger">
-                <div>Please Sign In to Create a Goal</div>
+            <div className="container no-pad">
+            <div className="col-md-12 alert alert-danger">
+                <div className="sign-in-alert-text">Please Sign in to Create a Goal</div>
                 
             </div>
             <br></br>

@@ -7,6 +7,7 @@ import Achievement from "../../components/Achievement";
 import Col from "../../components/Col";
 import AboutMe from "../../components/AboutMe";
 import API from "../../utils/API";
+import "./index.css";
 
 class Profile extends Component {
     constructor(props) {
@@ -26,30 +27,30 @@ class Profile extends Component {
     }
 
     getProfile = () => {
-        if(this.state.id) {
-        API.getProfile(this.state.id)
-          .then(res => {
-            this.setState({
-              profile: {
-                id: res.data[0]._id,
-                username: res.data[0].username,
-                image: res.data[0].image
-              }
-            })
-            console.log(this.state)
-          }
-          )
-          .catch(() =>
-            this.setState({
-              profile: {},
-              message: "Please sign-in"
-            })
-          );
+        if (this.state.id) {
+            API.getProfile(this.state.id)
+                .then(res => {
+                    this.setState({
+                        profile: {
+                            id: res.data[0]._id,
+                            username: res.data[0].username,
+                            image: res.data[0].image
+                        }
+                    })
+                    console.log(this.state)
+                }
+                )
+                .catch(() =>
+                    this.setState({
+                        profile: {},
+                        message: "Please sign-in"
+                    })
+                );
         }
         else {
-          console.log("not signed in")
+            console.log("not signed in")
         }
-      };
+    };
 
     getGoals = () => {
         API.getAllGoals()
@@ -97,11 +98,15 @@ class Profile extends Component {
                 <Row>
                     <Col size="md-4">
                         <Row>
+                            <div className="container">
                             <ProfileCard name={this.state.profile.username ? this.state.profile.username : "Please Sign In or Register"}
                                 image={this.state.profile.image ? this.state.profile.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"} />
+                        </div>
                         </Row>
                         <Row>
+                        <div className="container">
                             <Achievement />
+                            </div>
                         </Row>
                     </Col>
                     <div className="col-md-8">
@@ -110,24 +115,30 @@ class Profile extends Component {
                         </div>
                     </div>
                 </Row>
-                <br></br><br></br><br></br>
                 <Row>
                     <Row>
-                        <h1 className="text-center">Goals</h1>
+                        <div className="container">
+                            <div className="container alert alert-info">
+                                <h1 className="text-center">My Current Goals</h1>
+                            </div>
+                        </div>
+
                     </Row>
-                    <Col size="md-12">
-                        {this.state.goals.reverse().map(goal => (
-                            <GoalCard
-                                id={goal._id}
-                                title={goal.title}
-                                goal={goal.goal}
-                                creator={goal.userName}
-                                partner={goal.partnerID}
-                                image={goal.image ? goal.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"}
-                                handleBuddySubmit={this.handleBuddySubmit}
-                            />
-                        ))}
-                    </Col>
+                    <Row>
+                        <Col size="md-12">
+                            {this.state.goals.reverse().map(goal => (
+                                <GoalCard
+                                    id={goal._id}
+                                    title={goal.title}
+                                    goal={goal.goal}
+                                    creator={goal.userName}
+                                    partner={goal.partnerID}
+                                    image={goal.image ? goal.image : "https://www.orbistechnologies.com/wp-content/uploads/2018/12/profile-placeholder-image-gray-silhouette-no-vector-21542863-300x298.jpg"}
+                                    handleBuddySubmit={this.handleBuddySubmit}
+                                />
+                            ))}
+                        </Col>
+                    </Row>
 
 
                 </Row>
