@@ -4,7 +4,7 @@ import "./index.css";
 function Button(props) {
     if (props.partner) {
         return (
-            <div href="#" className="float-left text-muted buddy-text">_is Buddy'd up with <span className="name">{props.partner} </span>
+            <div href="#" className="float-left text-muted buddy-text"> is Buddy'd up with <span className="name">{props.partner} </span>
             </div>
         )
     }
